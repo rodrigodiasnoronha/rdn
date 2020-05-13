@@ -26,7 +26,7 @@ interface Props {
 }
 
 const PostContent: React.FC<Props> = ({ post }) => {
-    const url = `http://localhost:3000/${post.fields.alias}`;
+    const url = `https://rdn.now.sh/${post.fields.alias}`;
 
     function formatDay(dateReceived: string) {
         return new Date(dateReceived).getDate();
