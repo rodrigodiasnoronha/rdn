@@ -1,0 +1,36 @@
+{
+    "name": "rdn",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "dev": "next dev"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "axios": "^0.19.2",
+        "bootstrap": "^4.4.1",
+        "contentful": "^7.14.4",
+        "next": "^9.3.6",
+        "react": "^16.13.1",
+        "react-dom": "^16.13.1",
+        "react-icons": "^3.10.0",
+        "react-markdown": "^4.3.1",
+        "react-share": "^4.1.0",
+        "styled-components": "^5.1.0"
+    },
+    "devDependencies": {
+        "@types/node": "^13.13.5",
+        "@types/react": "^16.9.34",
+        "@types/styled-components": "^5.1.0",
+        "@typescript-eslint/eslint-plugin": "^2.33.0",
+        "@typescript-eslint/parser": "^2.33.0",
+        "babel-plugin-styled-components": "^1.10.7",
+        "eslint": "^7.0.0",
+        "eslint-plugin-react": "^7.19.0",
+        "typescript": "^3.8.3"
+    }
+}
