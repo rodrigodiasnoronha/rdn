@@ -29,24 +29,24 @@ const HeadComponent: React.FC = ({ children }) => (
         <title key="title">RDN Blog</title>
 
         {/* Og TAGS */}
-        <meta property="og:title" content="RDN Blog - Rodrigo Dias Noronha" />
-        <meta property="og:type" content="article" />
-        <meta property="og:url" content="https://rdn.netlify.com" />
+        <meta property="og:title" content="RDN Blog - Tecnologias e muito mais" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://rdn.now.sh" />
         <meta property="og:image" content="/og-image.PNG" />
-
+        <meta property="og:author" content="Rodrigo Dias Noronha"/>
         <meta
             property="og:description"
-            content="RDN - Blog de dicas sobre Desenvolvimento de Software"
+            content="RDN - Blog de dicas sobre Desenvolvimento de Software, criado por Rodrigo Dias Noronha"
         />
-        <meta property="og:determiner" content="" />
+        <meta property="og:determiner" content="https://rdn.now.sh" />
         <meta property="og:locale" content="pt_BR" />
         <meta property="og:locale:alternate" content="es_ES" />
-        <meta property="og:site_name" content="RDN Blog" />
+        <meta property="og:site_name" content="RDN Blog - Blog sobre tecnologias e muito mais" />
         <meta property="og:type" content="website" />
 
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content="@roketman09" />
-        <meta name={`twitter:title`} content="RDN - Blog" />
+        <meta name={`twitter:title`} content="RDN - Blog de Tecnologias e muito mais" />
         <meta name={`twitter:image`} content="/og-image.PNG" />
 
 
