@@ -149,17 +149,12 @@ const wallpapers = [
     'wp2.jpg',
 ];
 const phrases = [
-    '“If at first you don’t succeed, try, try again.”',
-    '“What the mind can conceive and believe, it can achieve.”',
-    '“The minute you settle for less than you deserve, you get even less than you settled for.”',
-    '“Continuous effort – not strength or intelligence – is the key to unlocking our potential.”',
-    '“Follow your dreams, work hard, practice and persevere.”',
-    '“Poverty was the greatest motivating factor in my life.”',
-    '“Small deeds done are better than great deeds planned.”',
-    '“If you can dream it, you can do it.”',
-    '“It’s always too early to quit.”',
-    '“You can never quit. Winners never quit, and quitters never win.”',
-    '“I’m a great believer in luck, and I find the harder I work, the more luck I have.”',
+    'Nunca desista de seus sonhos!',
+    'Acredite que você pode, assim você já está no meio do caminho.',
+    'Você precisa fazer aquilo que pensa que não é capaz de fazer.',
+    'Seja a mudança que você quer ver no mundo.',
+    'Todos os dias faça alguma coisa de que você tem medo.',
+    'Um homem não é outra coisa senão o que faz de si mesmo.',
 ];
 
 export default Header;

@@ -3,6 +3,7 @@ import { FiTwitter, FiMail, FiInstagram } from 'react-icons/fi';
 import { Post } from '../../types'; // eslint-disable-line
 import { Entry } from 'contentful'; // eslint-disable-line
 import { Container } from './styles';
+import DisqusComments from '../DisqusComments';
 import ReactMarkdown from 'react-markdown';
 import {
     FacebookIcon,
@@ -171,6 +172,12 @@ const PostContent: React.FC<Props> = ({ post }) => {
                         <EmailIcon size={50} />
                     </EmailShareButton>
                 </div>
+
+                <DisqusComments
+                    articleId={post.fields.alias}
+                    articleUrl={`https://rdn.now.sh/${post.fields.alias}`}
+                    articleTitle={post.fields.title}
+                />
             </div>
         </Container>
     );

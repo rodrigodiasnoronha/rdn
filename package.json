@@ -14,12 +14,10 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
-        "@contentful/rich-text-html-renderer": "^13.4.0",
-        "@contentful/rich-text-react-renderer": "^13.4.0",
-        "@contentful/rich-text-types": "^14.1.0",
         "axios": "^0.19.2",
         "bootstrap": "^4.4.1",
         "contentful": "^7.14.4",
+        "disqus-react": "^1.0.8",
         "next": "^9.3.6",
         "react": "^16.13.1",
         "react-dom": "^16.13.1",
