@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import Link from 'next/link';
 import { Container } from './styles';
 import { FiTwitter, FiMail } from 'react-icons/fi';
@@ -92,7 +92,7 @@ const Header: React.FC<Props> = ({ backgroundImage, title, date, phrase }) => {
                                     href="http://rodrigodn.netlify.com/"
                                     target="__blank"
                                 >
-                                    Me
+                                    Sobre
                                 </a>
                             </li>
                         </ul>
@@ -118,7 +118,7 @@ const Header: React.FC<Props> = ({ backgroundImage, title, date, phrase }) => {
                     <ul>
                         <li>
                             <Link href="/articles">
-                                <a>Articles</a>
+                                <a>Artigos</a>
                             </Link>
                         </li>
                         <li>
@@ -126,7 +126,7 @@ const Header: React.FC<Props> = ({ backgroundImage, title, date, phrase }) => {
                                 href="http://rodrigodn.netlify.com/"
                                 target="__blank"
                             >
-                                About me
+                                Sobre
                             </a>
                         </li>
                     </ul>
@@ -149,4 +149,4 @@ const wallpapers = [
     'wp2.jpg',
 ];
 
-export default Header;
+export default memo(Header);
