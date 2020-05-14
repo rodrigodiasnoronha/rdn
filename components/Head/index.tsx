@@ -49,6 +49,9 @@ const HeadComponent: React.FC = ({ children }) => (
         <meta name={`twitter:title`} content="RDN - Blog" />
         <meta name={`twitter:image`} content="/og-image.PNG" />
 
+
+<script data-ad-client="ca-pub-7185437016073244" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
         {children}
     </Head>
 );
