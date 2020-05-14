@@ -37,6 +37,20 @@ const PostComponent: NextPage<Props> = ({ post, error, errorMessage }) => {
                     <title key="title">{post.fields.title} | RND Blog</title>
 
                     <meta property="og:type" content="article" />
+                    <meta property="og:title" content={post.fields.title} />
+                    <meta
+                        property="og:url"
+                        content={`https://rdn.now.sh/${post.fields.alias}`}
+                    />
+                    <meta
+                        property="og:image"
+                        content={post.fields.thumbnail.fields.file.url}
+                    />
+                    <meta
+                        property="og:description"
+                        content={post.fields.description}
+                    />
+
                     <meta
                         property="article:published_time"
                         content={post.fields.createdAt}
@@ -49,6 +63,8 @@ const PostComponent: NextPage<Props> = ({ post, error, errorMessage }) => {
                         property="profile:first_name"
                         content={post.fields.author.fields.name}
                     />
+
+                    <meta name="twitter:card" content="summary" />
 
                     <meta name={`twitter:title`} content={post.fields.title} />
                     <meta
@@ -66,6 +82,17 @@ const PostComponent: NextPage<Props> = ({ post, error, errorMessage }) => {
                         content={
                             post.fields.author.fields?.twitter || '@roketman09'
                         }
+                    />
+
+                    <meta
+                        name="twitter:creator"
+                        content={
+                            post.fields.author.fields?.twitter || '@roketman09'
+                        }
+                    />
+                    <meta
+                        name="twitter:image:src"
+                        content={post.fields.thumbnail.fields.file.url}
                     />
 
                     <meta
