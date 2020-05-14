@@ -1,13 +1,13 @@
 import * as contentful from 'contentful';
 
 const keys = {
-  spaceId: 'dukrqne1yrbk',
-  accessToken: '6lOoYY8pMeFxTAJh47m-TuZe_evfqDREQsVXuMyNC5I',
+    spaceId: '4xlg4u86jlb1',
+    accessToken: 'GdXhu9HIstYsZOjNFgh5-uO8bDpqUvwfzAzSipznYkQ',
 };
 
 const client = contentful.createClient({
-  accessToken: keys.accessToken,
-  space: keys.spaceId,
+    accessToken: keys.accessToken,
+    space: keys.spaceId,
 });
 
 export default client;

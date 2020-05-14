@@ -22,7 +22,7 @@ const Search: React.FC<Props> = ({ updatePosts }) => {
 
         try {
             const response = await contentful.getEntries<Post>({
-                content_type: 'post',
+                content_type: 'article',
                 'fields.title[match]': query,
             });
 

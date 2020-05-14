@@ -37,7 +37,7 @@ const ArticlesComponent: NextPage<Props> = (props) => {
             const skip = posts.length;
 
             const response = await contentful.getEntries<Post>({
-                content_type: 'post',
+                content_type: 'article',
                 limit: 5,
                 skip,
             });
@@ -110,7 +110,7 @@ ArticlesComponent.getInitialProps = async () => {
 
     try {
         const response = await contentful.getEntries<Post>({
-            content_type: 'post',
+            content_type: 'article',
             limit: 5,
         });
 

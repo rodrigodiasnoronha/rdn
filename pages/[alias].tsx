@@ -97,7 +97,7 @@ PostComponent.getInitialProps = async (context) => {
 
     try {
         const response = await contentful.getEntries<Post>({
-            content_type: 'post',
+            content_type: 'article',
             'fields.alias': alias,
             limit: 1,
         });

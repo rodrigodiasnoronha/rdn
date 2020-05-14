@@ -18,7 +18,8 @@ const Dashboard: NextPage = () => {
 
     async function fetchPosts() {
         const response = await contentful.getEntries<Post>({
-            content_type: 'post',
+            content_type: 'article',
+            limit: 5,
         });
 
         setPosts(response.items);
