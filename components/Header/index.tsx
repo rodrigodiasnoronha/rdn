@@ -84,7 +84,7 @@ const Header: React.FC<Props> = ({ backgroundImage, title, date }) => {
                         <ul>
                             <li>
                                 <Link href="/articles">
-                                    <a>Articles</a>
+                                    <a>Artigos</a>
                                 </Link>
                             </li>
                             <li>
@@ -92,7 +92,7 @@ const Header: React.FC<Props> = ({ backgroundImage, title, date }) => {
                                     href="http://rodrigodn.netlify.com/"
                                     target="__blank"
                                 >
-                                    About me
+                                    Me
                                 </a>
                             </li>
                         </ul>
