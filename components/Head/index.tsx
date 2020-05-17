@@ -29,11 +29,14 @@ const HeadComponent: React.FC = ({ children }) => (
         <title key="title">RDN Blog</title>
 
         {/* Og TAGS */}
-        <meta property="og:title" content="RDN Blog - Tecnologias e muito mais" />
+        <meta
+            property="og:title"
+            content="RDN Blog - Tecnologias e muito mais"
+        />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://rdn.now.sh" />
         <meta property="og:image" content="/og-image.PNG" />
-        <meta property="og:author" content="Rodrigo Dias Noronha"/>
+        <meta property="og:author" content="Rodrigo Dias Noronha" />
         <meta
             property="og:description"
             content="RDN - Blog de dicas sobre Desenvolvimento de Software, criado por Rodrigo Dias Noronha"
@@ -41,16 +44,25 @@ const HeadComponent: React.FC = ({ children }) => (
         <meta property="og:determiner" content="https://rdn.now.sh" />
         <meta property="og:locale" content="pt_BR" />
         <meta property="og:locale:alternate" content="es_ES" />
-        <meta property="og:site_name" content="RDN Blog - Blog sobre tecnologias e muito mais" />
+        <meta
+            property="og:site_name"
+            content="RDN Blog - Blog sobre tecnologias e muito mais"
+        />
         <meta property="og:type" content="website" />
 
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content="@roketman09" />
-        <meta name={`twitter:title`} content="RDN - Blog de Tecnologias e muito mais" />
+        <meta
+            name={`twitter:title`}
+            content="RDN - Blog de Tecnologias e muito mais"
+        />
         <meta name={`twitter:image`} content="/og-image.PNG" />
 
-
-<script data-ad-client="ca-pub-7185437016073244" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <script
+            data-ad-client="ca-pub-7185437016073244"
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+        ></script>
 
         {children}
     </Head>

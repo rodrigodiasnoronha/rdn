@@ -5,6 +5,7 @@ import { Entry } from 'contentful'; // eslint-disable-line
 import { Container } from './styles';
 import DisqusComments from '../DisqusComments';
 import ReactMarkdown from 'react-markdown';
+import AdSense from 'react-adsense';
 import {
     FacebookIcon,
     FacebookShareButton,
@@ -130,6 +131,26 @@ const PostContent: React.FC<Props> = ({ post }) => {
                 </div>
             </div>
 
+            {/* Anúncio do google adsense  */}
+            <script
+                async
+                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+            ></script>
+            <ins
+                className="adsbygoogle"
+                style={{ display: 'block', textAlign: 'center' }}
+                data-ad-layout="in-article"
+                data-ad-format="fluid"
+                data-ad-client="ca-pub-7185437016073244"
+                data-ad-slot="8758317766"
+            ></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+            <AdSense.Google
+                client="ca-pub-7185437016073244"
+                slot="8758317766"
+            />
+
             <ReactMarkdown className="body" source={post.fields.body} />
 
             <div className="share-container">
@@ -179,6 +200,11 @@ const PostContent: React.FC<Props> = ({ post }) => {
                     articleTitle={post.fields.title}
                 />
             </div>
+
+            <script
+                async
+                src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+            ></script>
         </Container>
     );
 };
