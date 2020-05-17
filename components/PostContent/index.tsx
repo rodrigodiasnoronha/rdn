@@ -5,6 +5,7 @@ import { Entry } from 'contentful'; // eslint-disable-line
 import { Container } from './styles';
 import DisqusComments from '../DisqusComments';
 import ReactMarkdown from 'react-markdown';
+import Ads from '../Ads';
 import {
     FacebookIcon,
     FacebookShareButton,
@@ -129,6 +130,8 @@ const PostContent: React.FC<Props> = ({ post }) => {
                     </a>
                 </div>
             </div>
+
+            <Ads />
 
             <ReactMarkdown className="body" source={post.fields.body} />
 

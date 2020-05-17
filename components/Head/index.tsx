@@ -1,7 +1,5 @@
 import React from 'react';
 import Head from 'next/head';
-import { Post } from '../../types';
-import { Entry } from 'contentful';
 
 const HeadComponent: React.FC = ({ children }) => (
     <Head>
@@ -13,6 +11,7 @@ const HeadComponent: React.FC = ({ children }) => (
 */}
 
         <link rel="shortcut icon" href="/favicon.png" type="image/x-icon" />
+        <link rel="manifest" href="/manifest.json" />
 
         <link
             href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;700&display=swap"
