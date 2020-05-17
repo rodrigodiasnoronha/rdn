@@ -9,9 +9,8 @@ interface Props {
     date?: string;
 }
 
-const Header: React.FC<Props> = ({ backgroundImage, title, date, phrase }) => {
+const Header: React.FC<Props> = ({ backgroundImage, title, date }) => {
     const image = wallpapers[Math.floor(Math.random() * wallpapers.length)];
-
 
     function formatDay(dateReceived: string) {
         return new Date(dateReceived).getDate();
