@@ -1,3 +1,9 @@
+<<<<<<< HEAD
 User-agent: * 
 Allow: /
 Disallow: /ghost/
+=======
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Disallow:
+>>>>>>> b25ff66c3f9a435ac0b5aa413a0368469e626623

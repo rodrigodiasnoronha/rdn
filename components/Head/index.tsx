@@ -7,6 +7,7 @@ const HeadComponent: React.FC = ({ children }) => (
         <meta name="theme-color" content="#222" />
 
         <link rel="shortcut icon" href="/favicon.png" type="image/x-icon" />
+        <link rel="manifest" href="/manifest.json" />
 
         {/*  Google Fonts */}
         <link rel="shortcut icon" href="/favicon.png" type="image/x-icon" />

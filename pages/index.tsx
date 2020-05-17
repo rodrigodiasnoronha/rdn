@@ -6,7 +6,7 @@ import { Header, Article, Footer, Button, Head } from '../components';
 import styled from 'styled-components';
 import { Entry } from 'contentful'; // eslint-disable-line
 import { Post } from '../types'; // eslint-disable-line
-import Ads from '../components/Add.jsx';
+import Ads from '../components/Ads';
 
 const Dashboard: NextPage = () => {
     const [posts, setPosts] = useState<Entry<Post>[] | null>(null);
@@ -45,7 +45,6 @@ const Dashboard: NextPage = () => {
                             <Article key={post.fields.alias} data={post} />
                         ))}
                     </div>
-
                     <div className="more">
                         <Button
                             hoverColor="#c3b5d3"

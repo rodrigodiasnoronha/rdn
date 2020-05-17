@@ -1,6 +1,7 @@
 {
     "short_name": "rdn-blog",
     "name": "RDN Blog",
+<<<<<<< HEAD
     "start_url": ".",
     "display": "standalone",
     "theme_color": "#222",
@@ -17,4 +18,17 @@
 =======
     ]
 >>>>>>> 61df794... test
+=======
+    "icons": [
+        {
+            "src": "logo.png",
+            "sizes": "64x64 32x32 24x24 16x16",
+            "type": "image/png"
+        }
+    ],
+    "start_url": ".",
+    "display": "standalone",
+    "theme_color": "#222",
+    "background_color": "#ffffff"
+>>>>>>> b25ff66c3f9a435ac0b5aa413a0368469e626623
 }
