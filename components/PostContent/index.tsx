@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { FiTwitter, FiMail, FiInstagram } from 'react-icons/fi';
 import { Post } from '../../types'; // eslint-disable-line
 import { Entry } from 'contentful'; // eslint-disable-line
 import { Container } from './styles';
 import DisqusComments from '../DisqusComments';
 import ReactMarkdown from 'react-markdown';
-import AdSense from 'react-adsense';
 import {
     FacebookIcon,
     FacebookShareButton,
@@ -23,18 +22,12 @@ import {
     EmailShareButton,
 } from 'react-share';
 
-interface Props {
+interface PostContentProps {
     post: Entry<Post>;
 }
 
-const PostContent: React.FC<Props> = ({ post }) => {
+const PostContent: React.FC<PostContentProps> = ({ post }) => {
     const url = `https://rdn.now.sh/${post.fields.alias}`;
-
-    const [loading, setLoading] = useState<boolean>(true);
-
-    useEffect(() => {
-        setLoading(false);
-    }, []);
 
     function formatDay(dateReceived: string) {
         return new Date(dateReceived).getDate();
@@ -137,16 +130,6 @@ const PostContent: React.FC<Props> = ({ post }) => {
                 </div>
             </div>
 
-            {!loading && (
-                <AdSense.Google
-                    client="ca-pub-7185437016073244"
-                    slot="1554136239"
-                    style={{ display: 'block' }}
-                    layout="in-article"
-                    format="fluid"
-                />
-            )}
-
             <ReactMarkdown className="body" source={post.fields.body} />
 
             <div className="share-container">
@@ -190,27 +173,12 @@ const PostContent: React.FC<Props> = ({ post }) => {
                     </EmailShareButton>
                 </div>
 
-                {!loading && (
-                    <AdSense.Google
-                        client="ca-pub-7185437016073244"
-                        slot="1554136239"
-                        style={{ display: 'block' }}
-                        layout="in-article"
-                        format="fluid"
-                    />
-                )}
-
                 <DisqusComments
                     articleId={post.fields.alias}
                     articleUrl={`https://rdn.now.sh/${post.fields.alias}`}
                     articleTitle={post.fields.title}
                 />
             </div>
-            {/* 
-            <script
-                async
-                src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-            ></script> */}
         </Container>
     );
 };
