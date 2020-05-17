@@ -6,17 +6,14 @@ const HeadComponent: React.FC = ({ children }) => (
         {/* Chrome bar theme */}
         <meta name="theme-color" content="#222" />
 
-        {/* 
-  Google Fonts
-*/}
-
         <link rel="shortcut icon" href="/favicon.png" type="image/x-icon" />
 
+        {/*  Google Fonts */}
+        <link rel="shortcut icon" href="/favicon.png" type="image/x-icon" />
         <link
             href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;700&display=swap"
             rel="stylesheet"
         />
-
         <link
             href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;700&family=Roboto:wght@100;400;500;700&display=swap"
             rel="stylesheet"
@@ -25,12 +22,14 @@ const HeadComponent: React.FC = ({ children }) => (
             href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@400;700&display=swap"
             rel="stylesheet"
         ></link>
-
         <title key="title">RDN Blog</title>
 
         {/*  Reference to the manifest file in the public path */}
         <link rel="manifest" href="/manifest.json" />
 
+        <title key="title">RDN Blog</title>
+        {/*  Reference to the manifest file in the public path */}
+        <link rel="manifest" href="/manifest.json" />
         {/* Og TAGS */}
         <meta
             property="og:title"

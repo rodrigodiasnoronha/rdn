@@ -10,16 +10,16 @@ import GlobalStyles from '../components/GlobalStyles';
 import Head from '../components/Head';
 
 const Global: React.FC<AppProps> = (props) => {
-  const { Component, pageProps } = props;
+    const { Component, pageProps } = props;
 
-  return (
-    <>
-      <Head />
-      <GlobalStyles />
+    return (
+        <>
+            <Head />
+            <GlobalStyles />
 
-      <Component {...pageProps} />
-    </>
-  );
+            <Component {...pageProps} />
+        </>
+    );
 };
 
 export default Global;
