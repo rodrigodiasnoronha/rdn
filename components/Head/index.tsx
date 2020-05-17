@@ -64,6 +64,11 @@ const HeadComponent: React.FC = ({ children }) => (
             src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
         ></script>
 
+        <script
+            async
+            src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+        ></script>
+
         {children}
     </Head>
 );
