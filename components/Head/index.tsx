@@ -1,7 +1,5 @@
 import React from 'react';
 import Head from 'next/head';
-import { Post } from '../../types';
-import { Entry } from 'contentful';
 
 const HeadComponent: React.FC = ({ children }) => (
     <Head>

@@ -9,9 +9,9 @@ interface Props {
     date?: string;
 }
 
-const Header: React.FC<Props> = ({ backgroundImage, title, date }) => {
+const Header: React.FC<Props> = ({ backgroundImage, title, date, phrase }) => {
     const image = wallpapers[Math.floor(Math.random() * wallpapers.length)];
-    const phrase = phrases[Math.floor(Math.random() * phrases.length)];
+
 
     function formatDay(dateReceived: string) {
         return new Date(dateReceived).getDate();
@@ -132,7 +132,7 @@ const Header: React.FC<Props> = ({ backgroundImage, title, date }) => {
                     </ul>
                 </div>
                 <div className="phrase-container">
-                    <h3>{title || phrase}</h3>
+                    <h3>{title || 'Do what you must need do!'}</h3>
                     {date && <time className="date">{dateFormated}</time>}
                 </div>
             </div>
@@ -147,14 +147,6 @@ const wallpapers = [
     'pc2.jpg',
     'pc1.jpg',
     'wp2.jpg',
-];
-const phrases = [
-    'Nunca desista de seus sonhos!',
-    'Acredite que você pode, assim você já está no meio do caminho.',
-    'Você precisa fazer aquilo que pensa que não é capaz de fazer.',
-    'Seja a mudança que você quer ver no mundo.',
-    'Todos os dias faça alguma coisa de que você tem medo.',
-    'Um homem não é outra coisa senão o que faz de si mesmo.',
 ];
 
 export default Header;

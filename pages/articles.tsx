@@ -57,7 +57,7 @@ const ArticlesComponent: NextPage<Props> = (props) => {
                     <title key="title">404 | RDN Blog</title>
                 </Head>
 
-                <Header />
+                <Header title="Share your knowledge" />
 
                 <Container>
                     <Error message={errorMessage} />
@@ -72,7 +72,7 @@ const ArticlesComponent: NextPage<Props> = (props) => {
                 <title key="title">Artigos | RDN Blog</title>
             </Head>
 
-            <Header />
+            <Header title="Share your knowledge" />
 
             <Container>
                 <SearchArticle updatePosts={setPosts} />

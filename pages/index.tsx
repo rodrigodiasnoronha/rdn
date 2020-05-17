@@ -6,6 +6,7 @@ import { Header, Article, Footer, Button, Head } from '../components';
 import styled from 'styled-components';
 import { Entry } from 'contentful'; // eslint-disable-line
 import { Post } from '../types'; // eslint-disable-line
+import Ads from '../components/Add.jsx';
 
 const Dashboard: NextPage = () => {
     const [posts, setPosts] = useState<Entry<Post>[] | null>(null);
@@ -31,11 +32,13 @@ const Dashboard: NextPage = () => {
                 <title key="title">Home | RDN Blog</title>
             </Head>
 
-            <Header />
+            <Header title="Build, Create and Share" />
 
             <Container>
                 <section className="articles-section">
                     <h3>Artigos recentes</h3>
+
+                    <Ads />
 
                     <div className="articles">
                         {posts?.map((post) => (
