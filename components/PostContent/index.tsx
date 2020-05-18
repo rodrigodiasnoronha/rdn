@@ -21,6 +21,8 @@ import {
     TelegramShareButton,
     EmailIcon,
     EmailShareButton,
+    LinkedinShareButton,
+    LinkedinIcon,
 } from 'react-share';
 
 interface PostContentProps {
@@ -174,6 +176,15 @@ const PostContent: React.FC<PostContentProps> = ({ post }) => {
                     >
                         <EmailIcon size={50} />
                     </EmailShareButton>
+
+                    <LinkedinShareButton
+                        url={url}
+                        source={url}
+                        title={post.fields.title}
+                        summary={post.fields.description}
+                    >
+                        <LinkedinIcon size={50} />
+                    </LinkedinShareButton>
                 </div>
 
                 <DisqusComments
