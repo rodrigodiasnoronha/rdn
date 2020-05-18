@@ -33,14 +33,16 @@ const HeadComponent: React.FC = ({ children }) => (
         <link rel="manifest" href="/manifest.json" />
         {/* Og TAGS */}
         <meta
+            key="og:title"
             property="og:title"
             content="RDN Blog - Tecnologias e muito mais"
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://rdn.now.sh" />
-        <meta property="og:image" content="/og-image.PNG" />
+        <meta key="og:image" property="og:image" content="/og-image.PNG" />
         <meta property="og:author" content="Rodrigo Dias Noronha" />
         <meta
+            key="og:description"
             property="og:description"
             content="RDN - Blog de dicas sobre Desenvolvimento de Software, criado por Rodrigo Dias Noronha"
         />
@@ -48,6 +50,7 @@ const HeadComponent: React.FC = ({ children }) => (
         <meta property="og:locale" content="pt_BR" />
         <meta property="og:locale:alternate" content="es_ES" />
         <meta
+            key="og:site_name"
             property="og:site_name"
             content="RDN Blog - Blog sobre tecnologias e muito mais"
         />

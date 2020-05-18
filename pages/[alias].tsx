@@ -37,16 +37,29 @@ const PostComponent: NextPage<Props> = ({ post, error, errorMessage }) => {
                     <title key="title">{post.fields.title} | RND Blog</title>
 
                     <meta property="og:type" content="article" />
-                    <meta property="og:title" content={post.fields.title} />
+                    <meta
+                        key="og:title"
+                        property="og:title"
+                        content={post.fields.title}
+                    />
                     <meta
                         property="og:url"
                         content={`https://rdn.now.sh/${post.fields.alias}`}
                     />
+
                     <meta
+                        key="og:site_name"
+                        property="og:site_name"
+                        content={`RDN Blog - ${post.fields.title}`}
+                    />
+
+                    <meta
+                        key="og:image"
                         property="og:image"
                         content={post.fields.thumbnail.fields.file.url}
                     />
                     <meta
+                        key="og:description"
                         property="og:description"
                         content={post.fields.description}
                     />
