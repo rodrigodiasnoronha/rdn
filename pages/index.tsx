@@ -6,60 +6,6 @@ import { Header, Article, Footer, Button, Head } from '../components';
 import styled from 'styled-components';
 import { Entry } from 'contentful'; // eslint-disable-line
 import { Post } from '../types'; // eslint-disable-line
-import Ads from '../components/Ads';
-
-const Dashboard: NextPage = () => {
-    const [posts, setPosts] = useState<Entry<Post>[] | null>(null);
-
-    const router = useRouter();
-
-    useEffect(() => {
-        fetchPosts();
-    }, []);
-
-    async function fetchPosts() {
-        const response = await contentful.getEntries<Post>({
-            content_type: 'article',
-            limit: 5,
-        });
-
-        setPosts(response.items);
-    }
-
-    return (
-        <>
-            <Head>
-                <title key="title">Home | RDN Blog</title>
-            </Head>
-
-            <Header title="Build, Create and Share" />
-
-            <Container>
-                <section className="articles-section">
-                    <h3>Artigos recentes</h3>
-
-                    <Ads />
-
-                    <div className="articles">
-                        {posts?.map((post) => (
-                            <Article key={post.fields.alias} data={post} />
-                        ))}
-                    </div>
-                    <div className="more">
-                        <Button
-                            hoverColor="#c3b5d3"
-                            onClick={() => router.push('/articles')}
-                        >
-                            Ver mais
-                        </Button>
-                    </div>
-                </section>
-
-                <Footer />
-            </Container>
-        </>
-    );
-};
 
 const Container = styled.main`
     height: 100%;
@@ -101,5 +47,56 @@ const Container = styled.main`
         }
     }
 `;
+
+const Dashboard: NextPage = () => {
+    const [posts, setPosts] = useState<Entry<Post>[] | null>(null);
+
+    const router = useRouter();
+
+    useEffect(() => {
+        fetchPosts();
+    }, []);
+
+    async function fetchPosts() {
+        const response = await contentful.getEntries<Post>({
+            content_type: 'article',
+            limit: 5,
+        });
+
+        setPosts(response.items);
+    }
+
+    return (
+        <>
+            <Head>
+                <title key="title">Home | RDN Blog</title>
+            </Head>
+
+            <Header title="Build, Create and Share" />
+
+            <Container>
+                <section className="articles-section">
+                    <h3>Artigos recentes</h3>
+
+                    <div className="articles">
+                        {posts?.map((post) => (
+                            <Article key={post.fields.alias} data={post} />
+                        ))}
+                    </div>
+                    <div className="more">
+                        <Button
+                            hoverColor="#c3b5d3"
+                            onClick={() => router.push('/articles')}
+                        >
+                            Ver mais
+                        </Button>
+                    </div>
+                </section>
+
+                <Footer />
+            </Container>
+        </>
+    );
+};
 
 export default Dashboard;

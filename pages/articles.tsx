@@ -14,6 +14,29 @@ import {
 } from '../components';
 import styled from 'styled-components';
 
+const Container = styled.article`
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    max-width: 700px;
+    width: 100%;
+    margin: 35px auto;
+
+    .more {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 15px 0px;
+    }
+
+    @media (max-width: 700px) {
+        padding: 0px 10px;
+    }
+`;
+
 interface Props {
     posts: Entry<Post>[] | null;
     error: boolean;
@@ -134,28 +157,5 @@ ArticlesComponent.getInitialProps = async () => {
         return { posts, errorMessage, error, total };
     }
 };
-
-const Container = styled.article`
-    width: 100%;
-    height: 100%;
-
-    display: flex;
-    flex-direction: column;
-
-    max-width: 700px;
-    width: 100%;
-    margin: 35px auto;
-
-    .more {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 15px 0px;
-    }
-
-    @media (max-width: 700px) {
-        padding: 0px 10px;
-    }
-`;
 
 export default ArticlesComponent;

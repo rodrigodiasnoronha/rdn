@@ -28,18 +28,21 @@ const HeadComponent: React.FC = ({ children }) => (
         {/*  Reference to the manifest file in the public path */}
         <link rel="manifest" href="/manifest.json" />
 
-        <title key="title">RDN Blog</title>
         {/*  Reference to the manifest file in the public path */}
         <link rel="manifest" href="/manifest.json" />
         {/* Og TAGS */}
         <meta
             key="og:title"
             property="og:title"
-            content="RDN Blog - Tecnologias e muito mais"
+            content="RDN Blog - Dicas de Desenvolvimento de Software"
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://rdn.now.sh" />
-        <meta key="og:image" property="og:image" content="/og-image.PNG" />
+        <meta
+            key="og:image"
+            property="og:image"
+            content="http://vmorneau.me/content/images/2016/07/java-script.jpg"
+        />
         <meta property="og:author" content="Rodrigo Dias Noronha" />
         <meta
             key="og:description"
@@ -52,7 +55,7 @@ const HeadComponent: React.FC = ({ children }) => (
         <meta
             key="og:site_name"
             property="og:site_name"
-            content="RDN Blog - Blog sobre tecnologias e muito mais"
+            content="RDN Blog - Dicas sobre Desenvolvimento de Software"
         />
         <meta property="og:type" content="website" />
 
@@ -60,7 +63,7 @@ const HeadComponent: React.FC = ({ children }) => (
         <meta name="twitter:site" content="@roketman09" />
         <meta
             name={`twitter:title`}
-            content="RDN - Blog de Tecnologias e muito mais"
+            content="RDN Blog - Dicas sobre Desenvolvimento de Software, criado por Rodrigo Dias Noronha"
         />
         <meta name={`twitter:image`} content="/og-image.PNG" />
 

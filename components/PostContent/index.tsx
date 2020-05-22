@@ -4,8 +4,7 @@ import { Post } from '../../types'; // eslint-disable-line
 import { Entry } from 'contentful'; // eslint-disable-line
 import { Container } from './styles';
 import DisqusComments from '../DisqusComments';
-import ReactMarkdown from 'react-markdown';
-import Ads from '../Ads';
+import { Remarkable } from 'remarkable';
 import {
     FacebookIcon,
     FacebookShareButton,
@@ -28,6 +27,11 @@ import {
 interface PostContentProps {
     post: Entry<Post>;
 }
+
+var md = new Remarkable({
+    html: true, // Enable HTML tags in source
+    langPrefix: 'language-', // CSS language prefix for fenced blocks
+});
 
 const PostContent: React.FC<PostContentProps> = ({ post }) => {
     const url = `https://rdn.now.sh/${post.fields.alias}`;
@@ -92,6 +96,7 @@ const PostContent: React.FC<PostContentProps> = ({ post }) => {
             <div className="author">
                 <div className="pic">
                     <img
+                        loading="lazy"
                         src={
                             post.fields.author.fields?.avatar?.fields?.file?.url
                         }
@@ -133,9 +138,12 @@ const PostContent: React.FC<PostContentProps> = ({ post }) => {
                 </div>
             </div>
 
-            <Ads />
-
-            <ReactMarkdown className="body" source={post.fields.body} />
+            <div
+                className="body"
+                dangerouslySetInnerHTML={{
+                    __html: md.render(post.fields.body) || '',
+                }}
+            />
 
             <div className="share-container">
                 <h5>Compartilhe este artigo</h5>

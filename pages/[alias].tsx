@@ -6,6 +6,9 @@ import contentful from '../services/contentful';
 import styled from 'styled-components';
 import { Entry } from 'contentful'; // eslint-disable-line
 
+const Container = styled.main`
+    height: 100%;
+`;
 interface Props {
     alias: string;
     post: Entry<Post> | null;
@@ -159,9 +162,5 @@ PostComponent.getInitialProps = async (context) => {
         return { post, errorMessage, error, alias };
     }
 };
-
-const Container = styled.main`
-    height: 100%;
-`;
 
 export default PostComponent;
