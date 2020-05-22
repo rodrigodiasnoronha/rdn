@@ -4,35 +4,32 @@ import { Container } from './styles';
 
 const Footer: React.FC = () => {
     return (
-        <>
-            <Container>
-                <div className="info">
-                    <span>RDN Blog &#169; 2020</span>
-                </div>
+        <Container>
+            <div className="info">
+                <span>RDN Blog &#169; 2020</span>
+            </div>
 
-                <div className="links">
-                    <a href="https://twitter.com/roketman09" target="__blank">
-                        <FiTwitter size={30} />
-                    </a>
-                    <a
-                        href="https://github.com/rodrigodiasnoronha"
-                        target="__blank"
-                    >
-                        <FiGithub size={30} />
-                    </a>
-                    <a
-                        href="mailto:rodrigonoronha09@gmail.com"
-                        target="__blank"
-                    >
-                        <FiMail size={30} />
-                    </a>
-                </div>
-            </Container>
+            <div className="links">
+                <a href="https://twitter.com/roketman09" target="__blank">
+                    <FiTwitter size={30} />
+                </a>
+                <a
+                    href="https://github.com/rodrigodiasnoronha"
+                    target="__blank"
+                >
+                    <FiGithub size={30} />
+                </a>
+                <a href="mailto:rodrigonoronha09@gmail.com" target="__blank">
+                    <FiMail size={30} />
+                </a>
+            </div>
+
             <script
+                data-ad-client="ca-pub-7185437016073244"
                 async
-                src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
             ></script>
-        </>
+        </Container>
     );
 };
 
