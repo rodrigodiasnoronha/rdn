@@ -1,5 +1,5 @@
 import React from 'react';
-import { NextPage } from 'next'; // eslint-disable-line
+import { NextPage, GetStaticProps, GetStaticPaths } from 'next'; // eslint-disable-line
 import { Header, Footer, PostContent, Error, Head } from '../components';
 import { Post } from '../types'; // eslint-disable-line
 import contentful from '../services/contentful';
@@ -132,8 +132,8 @@ const PostComponent: NextPage<Props> = ({ post, error, errorMessage }) => {
     }
 };
 
-PostComponent.getInitialProps = async (context) => {
-    let alias = context.query.alias as string;
+export const getStaticProps: GetStaticProps = async (context) => {
+    let alias = context.params.alias as string;
     let error = false;
     let errorMessage = '';
     let post: Entry<Post> | null = null;
@@ -149,18 +149,63 @@ PostComponent.getInitialProps = async (context) => {
             error = true;
             errorMessage = 'Nenhuma postagem encontrada';
 
-            return { post, errorMessage, error, alias };
+            return { props: { post, errorMessage, error, alias } };
         }
 
         post = response.items[0];
 
-        return { post, errorMessage, error, alias };
+        return { props: { post, errorMessage, error, alias } };
     } catch (err) {
         errorMessage = 'Houve um erro ao mostrar a postagem';
         error = true;
 
-        return { post, errorMessage, error, alias };
+        return { props: { post, errorMessage, error, alias } };
     }
 };
+
+export const getStaticPaths: GetStaticPaths = async () => {
+    const response = await contentful.getEntries<Post>({
+        content_type: 'article',
+        limit: 1000,
+    });
+
+    // Get the paths we want to pre-render based on posts
+    const paths = response.items.map((i) => `/${i.fields.alias}`);
+
+    // We'll pre-render only these paths at build time.
+    // { fallback: false } means other routes should 404.
+    return { paths, fallback: false };
+};
+
+// PostComponent.getInitialProps = async (context) => {
+//     let alias = context.query.alias as string;
+//     let error = false;
+//     let errorMessage = '';
+//     let post: Entry<Post> | null = null;
+
+//     try {
+//         const response = await contentful.getEntries<Post>({
+//             content_type: 'article',
+//             'fields.alias': alias,
+//             limit: 1,
+//         });
+
+//         if (!response.items.length) {
+//             error = true;
+//             errorMessage = 'Nenhuma postagem encontrada';
+
+//             return { post, errorMessage, error, alias };
+//         }
+
+//         post = response.items[0];
+
+//         return { post, errorMessage, error, alias };
+//     } catch (err) {
+//         errorMessage = 'Houve um erro ao mostrar a postagem';
+//         error = true;
+
+//         return { post, errorMessage, error, alias };
+//     }
+// };
 
 export default PostComponent;
