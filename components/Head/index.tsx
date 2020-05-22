@@ -65,7 +65,10 @@ const HeadComponent: React.FC = ({ children }) => (
             name={`twitter:title`}
             content="RDN Blog - Dicas sobre Desenvolvimento de Software, criado por Rodrigo Dias Noronha"
         />
-        <meta name={`twitter:image`} content="/og-image.PNG" />
+        <meta
+            name={`twitter:image`}
+            content="http://vmorneau.me/content/images/2016/07/java-script.jpg"
+        />
 
         <script
             data-ad-client="ca-pub-7185437016073244"
