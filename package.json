@@ -14,20 +14,20 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
+        "@contentful/rich-text-html-renderer": "^14.1.2",
         "axios": "^0.19.2",
         "bootstrap": "^4.4.1",
         "contentful": "^7.14.4",
+        "date-fns": "^2.17.0",
         "disqus-react": "^1.0.8",
         "next": "^9.4.1",
+        "nextjs-progressbar": "0.0.7",
         "react": "^16.13.1",
         "react-adsense": "^0.1.0",
         "react-dom": "^16.13.1",
-        "react-google-ads": "^1.0.5",
-        "react-highlight": "^0.12.0",
         "react-icons": "^3.10.0",
         "react-markdown": "^4.3.1",
         "react-share": "^4.1.0",
-        "remarkable": "^2.0.0",
         "styled-components": "^5.1.0"
     },
     "devDependencies": {

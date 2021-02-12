@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Post } from '../../types'; // eslint-disable-line
 import { FiSearch } from 'react-icons/fi';
 import contentful from '../../services/contentful';
@@ -13,8 +13,19 @@ const Search: React.FC<Props> = ({ updatePosts }) => {
     const [query, setQuery] = useState<string>('');
     const [error, setError] = useState<string>('');
 
+    const inputRef = useRef<HTMLInputElement | null>(null);
+    const searchRef = useRef<HTMLDivElement | null>(null);
+
     useEffect(() => {
         setTimeout(() => setError(''), 5000);
+
+        inputRef.current.onblur = () => {
+            searchRef.current.style.border = '2px solid transparent';
+        };
+
+        inputRef.current.onfocus = () => {
+            searchRef.current.style.border = '2px solid #51c7da';
+        };
     }, [error]);
 
     async function submitHandler(event: React.FormEvent<HTMLFormElement>) {
@@ -22,8 +33,8 @@ const Search: React.FC<Props> = ({ updatePosts }) => {
 
         try {
             const response = await contentful.getEntries<Post>({
-                content_type: 'article',
-                'fields.title[match]': query,
+                content_type: 'postagem',
+                'fields.titulo[match]': query,
             });
 
             updatePosts(response.items);
@@ -33,9 +44,10 @@ const Search: React.FC<Props> = ({ updatePosts }) => {
     }
 
     return (
-        <>
-            <Form onSubmit={submitHandler}>
+        <React.Fragment>
+            <Form onSubmit={submitHandler} ref={searchRef}>
                 <input
+                    ref={inputRef}
                     value={query}
                     onChange={(event) => setQuery(event.target.value)}
                     type="text"
@@ -60,7 +72,7 @@ const Search: React.FC<Props> = ({ updatePosts }) => {
                     {error}
                 </span>
             )}
-        </>
+        </React.Fragment>
     );
 };
 

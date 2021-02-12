@@ -3,15 +3,7 @@ import { NextPage } from 'next'; // eslint-disable-line
 import { Post } from '../types'; // eslint-disable-line
 import contentful from '../services/contentful';
 import { Entry } from 'contentful'; // eslint-disable-line
-import {
-    Header,
-    Error,
-    Article,
-    Button,
-    SearchArticle,
-    Footer,
-    Head,
-} from '../components';
+import { Header, Error, Article, Button, SearchArticle, Footer, Head } from '../components';
 import styled from 'styled-components';
 
 const Container = styled.article`
@@ -25,6 +17,10 @@ const Container = styled.article`
     width: 100%;
     margin: 35px auto;
 
+    h2 {
+        margin-bottom: 5px;
+    }
+
     .more {
         display: flex;
         justify-content: center;
@@ -37,14 +33,14 @@ const Container = styled.article`
     }
 `;
 
-interface Props {
+interface ArticlesComponentProps {
     posts: Entry<Post>[] | null;
     error: boolean;
     errorMessage: string;
     total: number;
 }
 
-const ArticlesComponent: NextPage<Props> = (props) => {
+const ArticlesComponent: NextPage<ArticlesComponentProps> = (props) => {
     const { error, errorMessage, total } = props;
 
     const [posts, setPosts] = useState<Entry<Post>[] | null>(props.posts);
@@ -57,16 +53,11 @@ const ArticlesComponent: NextPage<Props> = (props) => {
             }
 
             setLoading(true);
-            const skip = posts.length;
 
-            const response = await contentful.getEntries<Post>({
-                content_type: 'article',
-                limit: 5,
-                skip,
-            });
+            const skip = posts.length;
+            const response = await contentful.getEntries<Post>({ content_type: 'postagem', limit: 5, skip });
 
             setPosts([...posts, ...response.items]);
-
             setLoading(false);
         } catch (err) {
             setLoading(false);
@@ -75,7 +66,7 @@ const ArticlesComponent: NextPage<Props> = (props) => {
 
     if (error) {
         return (
-            <>
+            <React.Fragment>
                 <Head>
                     <title key="title">404 | RDN Blog</title>
                 </Head>
@@ -85,12 +76,12 @@ const ArticlesComponent: NextPage<Props> = (props) => {
                 <Container>
                     <Error message={errorMessage} />
                 </Container>
-            </>
+            </React.Fragment>
         );
     }
 
     return (
-        <>
+        <React.Fragment>
             <Head>
                 <title key="title">Artigos | RDN Blog</title>
             </Head>
@@ -107,21 +98,13 @@ const ArticlesComponent: NextPage<Props> = (props) => {
                 ))}
 
                 <div className="more">
-                    <Button
-                        disabled={loading}
-                        hoverColor="#c3b5d3"
-                        onClick={getMorePosts}
-                    >
-                        {total <= posts.length
-                            ? 'Não há mais artigos'
-                            : loading
-                            ? 'Carregando'
-                            : 'Mostrar mais'}
+                    <Button disabled={loading} hoverColor="#c3b5d3" onClick={getMorePosts}>
+                        {total <= posts.length ? 'Não há mais artigos' : loading ? 'Carregando' : 'Mostrar mais'}
                     </Button>
                 </div>
             </Container>
             <Footer />
-        </>
+        </React.Fragment>
     );
 };
 
@@ -133,7 +116,7 @@ ArticlesComponent.getInitialProps = async () => {
 
     try {
         const response = await contentful.getEntries<Post>({
-            content_type: 'article',
+            content_type: 'postagem',
             limit: 5,
         });
 

@@ -6,12 +6,14 @@ export const Form = styled.form`
 
     height: 50px;
     margin: 15px 0px;
+    border-radius: 4px;
+    transition: 0.5s;
 
     input {
         flex: 5;
         height: 100%;
         padding-left: 10px;
-        border: 1px solid transparent;
+        border: 2px solid transparent;
         border-top-left-radius: 4px;
         border-bottom-left-radius: 4px;
 

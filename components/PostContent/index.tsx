@@ -1,10 +1,12 @@
 import React from 'react';
-import { FiTwitter, FiMail, FiInstagram } from 'react-icons/fi';
-import { Post } from '../../types'; // eslint-disable-line
-import { Entry } from 'contentful'; // eslint-disable-line
+import { FiTwitter, FiMail } from 'react-icons/fi';
+import { Post } from '../../types';
+import { Entry } from 'contentful';
 import { Container } from './styles';
 import DisqusComments from '../DisqusComments';
-import { Remarkable } from 'remarkable';
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import { format } from 'date-fns';
+import { ptBR } from 'date-fns/locale';
 import {
     FacebookIcon,
     FacebookShareButton,
@@ -28,168 +30,85 @@ interface PostContentProps {
     post: Entry<Post>;
 }
 
-var md = new Remarkable({
-    html: true, // Enable HTML tags in source
-    langPrefix: 'language-', // CSS language prefix for fenced blocks
-});
-
 const PostContent: React.FC<PostContentProps> = ({ post }) => {
     const url = `https://rdn.now.sh/${post.fields.alias}`;
 
-    function formatDay(dateReceived: string) {
-        return new Date(dateReceived).getDate();
+    function renderPostContent(body: any) {
+        const html = documentToHtmlString(body);
+        return html;
     }
 
-    function formatMonth(dateReceived: string) {
-        const month = new Date(dateReceived).getMonth() + 1;
-
-        switch (month) {
-            case 1:
-                return 'JAN';
-
-            case 2:
-                return 'FEV';
-
-            case 3:
-                return 'MAR';
-
-            case 4:
-                return 'ABR';
-
-            case 5:
-                return 'MAI';
-
-            case 6:
-                return 'JUN';
-
-            case 7:
-                return 'JUL';
-
-            case 8:
-                return 'AGO';
-
-            case 9:
-                return 'SET';
-
-            case 10:
-                return 'OUT';
-
-            case 11:
-                return 'NOV';
-
-            case 12:
-                return 'DEZ';
-
-            default:
-                return String(month);
-        }
-    }
-
-    function formatYear(dateReceived: string) {
-        return new Date(dateReceived).getFullYear();
+    function formatDate(date: Date) {
+        return format(new Date(date), "d 'de' MMMM 'de' Y", { locale: ptBR });
     }
 
     return (
         <Container>
-            <h4 className="description">{post.fields.description}</h4>
+            <h4 className="description">{post.fields.descricao}</h4>
 
             <div className="author">
                 <div className="pic">
                     <img
                         loading="lazy"
-                        src={
-                            post.fields.author.fields?.avatar?.fields?.file?.url
-                        }
-                        alt={post.fields.author.fields.name}
-                        title={post.fields.author.fields.name}
+                        src={post.fields.autor.fields?.foto?.fields?.file?.url}
+                        alt={post.fields.autor.fields.nome}
+                        title={post.fields.autor.fields.nome}
                     />
                 </div>
 
                 <div className="info">
-                    <span>{post.fields.author.fields.name}</span>
-                    <time>
-                        {formatMonth(post.fields.createdAt)}{' '}
-                        {formatDay(post.fields.createdAt)}
-                        {', '}
-                        {formatYear(post.fields.createdAt)}
-                    </time>
+                    <span>{post.fields.autor.fields.nome}</span>
+                    <time>{formatDate(post.fields.createdAt)}</time>
                 </div>
 
                 <div className="contact">
-                    <a
-                        target="__blank"
-                        href={`https://twitter.com/${post.fields.author.fields?.twitter}`}
-                    >
+                    <a target="__blank" href={`https://twitter.com/${post.fields.autor.fields?.twitter}`}>
                         <FiTwitter color="#1da1f2" size={25} />
                     </a>
 
-                    {post.fields.author.fields?.instagram && (
-                        <a
-                            target="__blank"
-                            href={`https://instagram.com/${post.fields.author.fields?.instagram}`}
-                        >
-                            <FiInstagram color="#fb7da7" size={25} />
-                        </a>
-                    )}
-
-                    <a href={`mailto:${post.fields.author.fields.email}`}>
+                    <a href={`mailto:${post.fields.autor.fields.email}`}>
                         <FiMail color="#e3cf65" size={25} />
                     </a>
                 </div>
             </div>
 
-            <div
-                className="body"
-                dangerouslySetInnerHTML={{
-                    __html: md.render(post.fields.body) || '',
-                }}
-            />
+            <div className="body" dangerouslySetInnerHTML={{ __html: renderPostContent(post.fields.body) }} />
 
             <div className="share-container">
-                <h5>Compartilhe este artigo</h5>
-
                 <div className="share">
-                    <FacebookShareButton url={url} quote={post.fields.title}>
+                    <FacebookShareButton url={url} quote={post.fields.titulo}>
                         <FacebookIcon size={50} />
                     </FacebookShareButton>
 
-                    <WhatsappShareButton title={post.fields.title} url={url}>
+                    <WhatsappShareButton title={post.fields.titulo} url={url}>
                         <WhatsappIcon size={50} />
                     </WhatsappShareButton>
 
-                    <TwitterShareButton title={post.fields.title} url={url}>
+                    <TwitterShareButton title={post.fields.titulo} url={url}>
                         <TwitterIcon size={50} />
                     </TwitterShareButton>
 
-                    <TumblrShareButton
-                        url={url}
-                        title={post.fields.title}
-                        caption={post.fields.description}
-                    >
+                    <TumblrShareButton url={url} title={post.fields.titulo} caption={post.fields.descricao}>
                         <TumblrIcon size={50} />
                     </TumblrShareButton>
 
-                    <RedditShareButton url={url} title={post.fields.title}>
+                    <RedditShareButton url={url} title={post.fields.titulo}>
                         <RedditIcon size={50} />
                     </RedditShareButton>
 
-                    <TelegramShareButton url={url} title={post.fields.title}>
+                    <TelegramShareButton url={url} title={post.fields.titulo}>
                         <TelegramIcon size={50} />
                     </TelegramShareButton>
 
-                    <EmailShareButton
-                        url={url}
-                        subject={post.fields.title}
-                        body={post.fields.description}
-                    >
+                    <EmailShareButton url={url} subject={post.fields.titulo} body={post.fields.descricao}>
                         <EmailIcon size={50} />
                     </EmailShareButton>
 
                     <LinkedinShareButton
                         url={url}
                         source={url}
-                        title={post.fields.title}
-                        summary={post.fields.description}
+                        title={post.fields.titulo}
+                        summary={post.fields.descricao}
                     >
                         <LinkedinIcon size={50} />
                     </LinkedinShareButton>
@@ -198,7 +117,7 @@ const PostContent: React.FC<PostContentProps> = ({ post }) => {
                 <DisqusComments
                     articleId={post.fields.alias}
                     articleUrl={`https://rdn.now.sh/${post.fields.alias}`}
-                    articleTitle={post.fields.title}
+                    articleTitle={post.fields.titulo}
                 />
             </div>
         </Container>

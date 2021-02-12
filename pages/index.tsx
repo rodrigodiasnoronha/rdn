@@ -58,12 +58,16 @@ const Dashboard: NextPage = () => {
     }, []);
 
     async function fetchPosts() {
-        const response = await contentful.getEntries<Post>({
-            content_type: 'article',
-            limit: 5,
-        });
+        try {
+            const response = await contentful.getEntries<Post>({
+                content_type: 'postagem',
+                limit: 5,
+            });
 
-        setPosts(response.items);
+            setPosts(response.items);
+        } catch (err) {
+            console.log(err);
+        }
     }
 
     return (
@@ -79,15 +83,10 @@ const Dashboard: NextPage = () => {
                     <h3>Artigos recentes</h3>
 
                     <div className="articles">
-                        {posts?.map((post) => (
-                            <Article key={post.fields.alias} data={post} />
-                        ))}
+                        {posts && posts.map((post) => <Article key={post.fields.alias} data={post} />)}
                     </div>
                     <div className="more">
-                        <Button
-                            hoverColor="#c3b5d3"
-                            onClick={() => router.push('/articles')}
-                        >
+                        <Button hoverColor="#c3b5d3" onClick={() => router.push('/articles')}>
                             Ver mais
                         </Button>
                     </div>

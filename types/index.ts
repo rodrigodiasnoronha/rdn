@@ -25,22 +25,20 @@ export interface Avatar {
 }
 
 export interface Author {
-    avatar: Entry<Avatar>;
+    foto: Entry<Avatar>;
     bio: string;
     email: string;
-    name: string;
+    nome: string;
     twitter: string;
-    instagram?: string;
-    facebook: string;
+    funcao: string;
 }
 
 export interface Post {
     alias: string;
-    body: string;
-    createdAt: string;
-    description: string;
-    views: number;
-    title: string;
-    thumbnail: Entry<Thumbnail>;
-    author: Entry<Author>;
+    body: Entry<object>;
+    createdAt: Date;
+    descricao: string;
+    titulo: string;
+    thumb: Entry<Thumbnail>;
+    autor: Entry<Author>;
 }

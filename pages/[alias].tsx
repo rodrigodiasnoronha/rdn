@@ -1,14 +1,17 @@
 import React from 'react';
-import { NextPage, GetStaticProps, GetStaticPaths } from 'next'; // eslint-disable-line
+import { NextPage } from 'next'; // eslint-disable-line
 import { Header, Footer, PostContent, Error, Head } from '../components';
 import { Post } from '../types'; // eslint-disable-line
 import contentful from '../services/contentful';
 import styled from 'styled-components';
+import { format } from 'date-fns';
+import { ptBR } from 'date-fns/locale';
 import { Entry } from 'contentful'; // eslint-disable-line
 
 const Container = styled.main`
     height: 100%;
 `;
+
 interface Props {
     alias: string;
     post: Entry<Post> | null;
@@ -17,9 +20,13 @@ interface Props {
 }
 
 const PostComponent: NextPage<Props> = ({ post, error, errorMessage }) => {
+    function formatDate(date: Date) {
+        return format(new Date(date), "d 'de' MMMM 'de' Y", { locale: ptBR });
+    }
+
     if (error) {
         return (
-            <>
+            <React.Fragment>
                 <Head>
                     <title key="title">404 | RND Blog</title>
                 </Head>
@@ -31,116 +38,68 @@ const PostComponent: NextPage<Props> = ({ post, error, errorMessage }) => {
 
                     <Footer />
                 </Container>
-            </>
-        );
-    } else {
-        return (
-            <>
-                <Head>
-                    <title key="title">{post.fields.title} | RND Blog</title>
-
-                    <meta property="og:type" content="article" />
-                    <meta
-                        key="og:title"
-                        property="og:title"
-                        content={post.fields.title}
-                    />
-                    <meta
-                        property="og:url"
-                        content={`https://rdn.now.sh/${post.fields.alias}`}
-                    />
-
-                    <meta
-                        key="og:site_name"
-                        property="og:site_name"
-                        content={`RDN Blog - ${post.fields.title}`}
-                    />
-
-                    <meta
-                        key="og:image"
-                        property="og:image"
-                        content={post.fields.thumbnail.fields.file.url}
-                    />
-                    <meta
-                        key="og:description"
-                        property="og:description"
-                        content={post.fields.description}
-                    />
-
-                    <meta
-                        property="article:published_time"
-                        content={post.fields.createdAt}
-                    />
-                    <meta
-                        property="article:author"
-                        content={post.fields.author.fields.name}
-                    />
-                    <meta
-                        property="profile:first_name"
-                        content={post.fields.author.fields.name}
-                    />
-
-                    <meta name="twitter:card" content="summary" />
-
-                    <meta name={`twitter:title`} content={post.fields.title} />
-                    <meta
-                        name={`twitter:description`}
-                        content={post.fields.description}
-                    />
-
-                    <meta
-                        name={`twitter:image`}
-                        content={post.fields.thumbnail.fields.file.url}
-                    />
-
-                    <meta
-                        name="twitter:site"
-                        content={
-                            post.fields.author.fields?.twitter || '@roketman09'
-                        }
-                    />
-
-                    <meta
-                        name="twitter:creator"
-                        content={
-                            post.fields.author.fields?.twitter || '@roketman09'
-                        }
-                    />
-                    <meta
-                        name="twitter:image:src"
-                        content={post.fields.thumbnail.fields.file.url}
-                    />
-
-                    <meta
-                        property="article:tag"
-                        content="Programação, TI, JavaScript, Dicas de Programação, Desenvolvimento de Software, Rodrigo Dias Noronha, RDN Blog, Front End, Node.js, React, React Native"
-                    />
-                </Head>
-                <Header
-                    backgroundImage={post.fields.thumbnail.fields.file.url}
-                    title={post.fields.title}
-                    date={post.fields.createdAt}
-                />
-
-                <Container>
-                    <PostContent post={post} />
-
-                    <Footer />
-                </Container>
-            </>
+            </React.Fragment>
         );
     }
+
+    return (
+        <React.Fragment>
+            <Head>
+                <title key="title">{post.fields.titulo} | RND Blog</title>
+
+                <meta property="og:type" content="article" />
+                <meta key="og:title" property="og:title" content={post.fields.titulo} />
+                <meta property="og:url" content={`https://rdn.now.sh/${post.fields.alias}`} />
+
+                <meta key="og:site_name" property="og:site_name" content={`RDN Blog - ${post.fields.titulo}`} />
+
+                <meta key="og:image" property="og:image" content={post.fields.thumb.fields.file.url} />
+                <meta key="og:description" property="og:description" content={post.fields.descricao} />
+
+                <meta property="article:published_time" content={String(post.fields.createdAt)} />
+                <meta property="article:author" content={post.fields.autor.fields.nome} />
+                <meta property="profile:first_name" content={post.fields.autor.fields.nome} />
+
+                <meta name="twitter:card" content="summary" />
+
+                <meta name={`twitter:title`} content={post.fields.titulo} />
+                <meta name={`twitter:description`} content={post.fields.descricao} />
+
+                <meta name={`twitter:image`} content={post.fields.thumb.fields.file.url} />
+
+                <meta name="twitter:site" content={post.fields.autor.fields?.twitter || '@roketman09'} />
+
+                <meta name="twitter:creator" content={post.fields.autor.fields?.twitter || '@roketman09'} />
+                <meta name="twitter:image:src" content={post.fields.thumb.fields.file.url} />
+
+                <meta
+                    property="article:tag"
+                    content="Programação, TI, JavaScript, Dicas de Programação, Desenvolvimento de Software, Rodrigo Dias Noronha, RDN Blog, Front End, Node.js, React, React Native"
+                />
+            </Head>
+            <Header
+                backgroundImage={post.fields.thumb.fields.file.url}
+                title={post.fields.titulo}
+                date={formatDate(post.fields.createdAt)}
+            />
+
+            <Container>
+                <PostContent post={post} />
+                <Footer />
+            </Container>
+        </React.Fragment>
+    );
 };
 
-export const getStaticProps: GetStaticProps = async (context) => {
-    let alias = context.params.alias as string;
+PostComponent.getInitialProps = async (context) => {
+    let alias = context.query.alias as string;
     let error = false;
     let errorMessage = '';
     let post: Entry<Post> | null = null;
 
     try {
         const response = await contentful.getEntries<Post>({
-            content_type: 'article',
+            content_type: 'postagem',
             'fields.alias': alias,
             limit: 1,
         });
@@ -154,58 +113,13 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
         post = response.items[0];
 
-        return { props: { post, errorMessage, error, alias } };
+        return { post, errorMessage, error, alias };
     } catch (err) {
         errorMessage = 'Houve um erro ao mostrar a postagem';
         error = true;
 
-        return { props: { post, errorMessage, error, alias } };
+        return { post, errorMessage, error, alias };
     }
 };
-
-export const getStaticPaths: GetStaticPaths = async () => {
-    const response = await contentful.getEntries<Post>({
-        content_type: 'article',
-        limit: 1000,
-    });
-
-    // Get the paths we want to pre-render based on posts
-    const paths = response.items.map((i) => `/${i.fields.alias}`);
-
-    // We'll pre-render only these paths at build time.
-    // { fallback: false } means other routes should 404.
-    return { paths, fallback: false };
-};
-
-// PostComponent.getInitialProps = async (context) => {
-//     let alias = context.query.alias as string;
-//     let error = false;
-//     let errorMessage = '';
-//     let post: Entry<Post> | null = null;
-
-//     try {
-//         const response = await contentful.getEntries<Post>({
-//             content_type: 'article',
-//             'fields.alias': alias,
-//             limit: 1,
-//         });
-
-//         if (!response.items.length) {
-//             error = true;
-//             errorMessage = 'Nenhuma postagem encontrada';
-
-//             return { post, errorMessage, error, alias };
-//         }
-
-//         post = response.items[0];
-
-//         return { post, errorMessage, error, alias };
-//     } catch (err) {
-//         errorMessage = 'Houve um erro ao mostrar a postagem';
-//         error = true;
-
-//         return { post, errorMessage, error, alias };
-//     }
-// };
 
 export default PostComponent;
