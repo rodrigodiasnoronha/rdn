@@ -50,11 +50,21 @@ const Container = styled.main`
 
 const Dashboard: NextPage = () => {
     const [posts, setPosts] = useState<Entry<Post>[] | null>(null);
+    const [title, setTitle] = useState<string>(phrases[Math.floor(Math.random() * phrases.length)]);
 
     const router = useRouter();
 
     useEffect(() => {
         fetchPosts();
+
+        const interval = setInterval(() => {
+            const p = phrases[Math.floor(Math.random() * phrases.length)];
+            setTitle(p);
+        }, 10000);
+
+        return () => {
+            clearInterval(interval);
+        };
     }, []);
 
     async function fetchPosts() {
@@ -65,9 +75,7 @@ const Dashboard: NextPage = () => {
             });
 
             setPosts(response.items);
-        } catch (err) {
-            console.log(err);
-        }
+        } catch (err) {}
     }
 
     return (
@@ -76,7 +84,7 @@ const Dashboard: NextPage = () => {
                 <title key="title">Home | RDN Blog</title>
             </Head>
 
-            <Header title="Build, Create and Share" />
+            <Header title={title} />
 
             <Container>
                 <section className="articles-section">
@@ -97,5 +105,7 @@ const Dashboard: NextPage = () => {
         </>
     );
 };
+
+const phrases = ['build, create and share', 'be the change', 'Dream it...', 'Dream bigger.', "Don't limit yourself."];
 
 export default Dashboard;

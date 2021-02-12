@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import { Container } from './styles';
 import { FiTwitter, FiMail } from 'react-icons/fi';
@@ -13,7 +13,7 @@ const Header: React.FC<Props> = ({ backgroundImage, title, date }) => {
     const image = wallpapers[Math.floor(Math.random() * wallpapers.length)];
 
     return (
-        <Container image={backgroundImage || image}>
+        <Container image={backgroundImage || `/header/${image}`}>
             <div className="opacity">
                 <div className="header">
                     <div className="title">
@@ -38,11 +38,11 @@ const Header: React.FC<Props> = ({ backgroundImage, title, date }) => {
                     </nav>
 
                     <div className="social-media">
-                        <a href="https://twitter.com/roketman09" target="__blank">
+                        <a href="https://twitter.com/xxxkckkxkxxk" target="__blank">
                             <FiTwitter size={25} />
                         </a>
 
-                        <a href="mailto:rodrigonoronha09@gmail.com" target="__blank">
+                        <a href="mailto:rodrigodnoronha@gmail.com" target="__blank">
                             <FiMail size={25} />
                         </a>
                     </div>
@@ -70,6 +70,17 @@ const Header: React.FC<Props> = ({ backgroundImage, title, date }) => {
     );
 };
 
-const wallpapers = ['wp.jpg', 'pc.jpg', 'wp5.jpg', 'pc2.jpg', 'pc1.jpg', 'wp2.jpg'];
+const wallpapers = [
+    'wp.jpg',
+    'wp2.jpg',
+    'wp3.jpg',
+    'wp4.jpg',
+    'wp5.jpg',
+    'wp6.jpg',
+    'wp7.jpg',
+    'wp8.jpg',
+    'wp9.jpg',
+    'wp10.jpg',
+];
 
-export default memo(Header);
+export default Header;
