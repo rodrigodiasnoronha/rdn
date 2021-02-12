@@ -19,6 +19,7 @@ interface Props {
     errorMessage: string;
 }
 
+// @ts-ignore
 const PostComponent: NextPage<Props> = ({ post, error, errorMessage }) => {
     function formatDate(date: Date) {
         return format(new Date(date), "d 'de' MMMM 'de' Y", { locale: ptBR });
@@ -91,6 +92,7 @@ const PostComponent: NextPage<Props> = ({ post, error, errorMessage }) => {
     );
 };
 
+// @ts-ignore
 PostComponent.getInitialProps = async (context) => {
     let alias = context.query.alias as string;
     let error = false;
