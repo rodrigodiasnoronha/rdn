@@ -14,7 +14,7 @@ const Search: React.FC<Props> = ({ updatePosts }) => {
     const [error, setError] = useState<string>('');
 
     const inputRef = useRef<HTMLInputElement | null>(null);
-    const searchRef = useRef<HTMLDivElement | null>(null);
+    const searchRef = useRef<HTMLFormElement | null>(null);
 
     useEffect(() => {
         setTimeout(() => setError(''), 5000);
