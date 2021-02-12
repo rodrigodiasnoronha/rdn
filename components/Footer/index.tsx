@@ -10,25 +10,16 @@ const Footer: React.FC = () => {
             </div>
 
             <div className="links">
-                <a href="https://twitter.com/roketman09" target="__blank">
+                <a href="https://twitter.com/xxxkckkxkxxk" target="__blank">
                     <FiTwitter size={30} />
                 </a>
-                <a
-                    href="https://github.com/rodrigodiasnoronha"
-                    target="__blank"
-                >
+                <a href="https://github.com/rodrigodiasnoronha" target="__blank">
                     <FiGithub size={30} />
                 </a>
-                <a href="mailto:rodrigonoronha09@gmail.com" target="__blank">
+                <a href="mailto:rodrigodnoronha@gmail.com" target="__blank">
                     <FiMail size={30} />
                 </a>
             </div>
-
-            <script
-                data-ad-client="ca-pub-7185437016073244"
-                async
-                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-            ></script>
         </Container>
     );
 };

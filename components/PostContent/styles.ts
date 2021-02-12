@@ -53,6 +53,7 @@ export const Container = styled.article`
         font-family: Roboto, Jost, Arial, sans-serif;
         font-size: 16px;
         color: #333;
+        margin-bottom: 5px;
     }
 
     .author .info time {
@@ -90,8 +91,9 @@ export const Container = styled.article`
         border-top-color: #ccc;
     }
 
-    .share-container h5 {
+    .share-container h4 {
         text-align: center;
+        marbin-bottom: 10px;
     }
 
     .share {
@@ -115,18 +117,6 @@ export const Container = styled.article`
         font-size: 1.2rem;
         font-family: Jost, Roboto, Arial, Helvetica, sans-serif;
     }
-    /* 
-  .body p,
-  .body em,
-  a {
-    font-size: 20px;
-  }
-
-  .body p {
-    margin-top: 2px;
-  }
-
- */
 
     @media (max-width: 700px) {
         .body {
@@ -150,11 +140,6 @@ export const Container = styled.article`
         opacity: 0.2;
         transition: opacity 0.5s;
     }
-
-    /*
-  .body li {
-    font-size: 19px;
-  } */
 
     .body h5 {
         font-size: 24px;
@@ -190,7 +175,6 @@ export const Container = styled.article`
         word-wrap: break-word;
     }
     /* Estilos do Bootstrap (colei de node_modules/bootstrap/dist/css/boostrap.csss) */
-
     .body img {
         width: 100% !important;
         margin: 25px 0px;
