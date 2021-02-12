@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { Component } from 'react';
 import { NextPage } from 'next'; // eslint-disable-line
-import { useRouter } from 'next/router';
+import { withRouter, NextRouter } from 'next/router';
 import contentful from '../services/contentful';
 import { Header, Article, Footer, Button, Head } from '../components';
 import styled from 'styled-components';
@@ -48,64 +48,73 @@ const Container = styled.main`
     }
 `;
 
-const Dashboard: NextPage = () => {
-    const [posts, setPosts] = useState<Entry<Post>[] | null>(null);
-    const [title, setTitle] = useState<string>(phrases[Math.floor(Math.random() * phrases.length)]);
+interface WithRouterProps {
+    router: NextRouter;
+}
 
-    const router = useRouter();
+interface DashboardProps extends WithRouterProps {}
 
-    useEffect(() => {
-        fetchPosts();
+interface DashboardState {
+    posts: Entry<Post>[];
+}
 
-        const interval = setInterval(() => {
-            const p = phrases[Math.floor(Math.random() * phrases.length)];
-            setTitle(p);
-        }, 10000);
+class Dashboard extends Component<DashboardProps, DashboardState> {
+    constructor(props) {
+        super(props);
 
-        return () => {
-            clearInterval(interval);
+        this.fetchPosts = this.fetchPosts.bind(this);
+
+        this.state = {
+            posts: [],
         };
-    }, []);
+    }
 
-    async function fetchPosts() {
+    componentDidMount() {
+        this.fetchPosts();
+    }
+
+    async fetchPosts() {
         try {
             const response = await contentful.getEntries<Post>({
                 content_type: 'postagem',
                 limit: 5,
             });
 
-            setPosts(response.items);
-        } catch (err) {}
+            this.setState({ posts: response.items });
+        } catch (err) {
+            console.log(err);
+        }
     }
 
-    return (
-        <>
-            <Head>
-                <title key="title">Home | RDN Blog</title>
-            </Head>
+    render() {
+        return (
+            <React.Fragment>
+                <Head>
+                    <title key="title">Home | RDN Blog</title>
+                </Head>
 
-            <Header title={title} />
+                <Header title="Build, Create and Share" />
 
-            <Container>
-                <section className="articles-section">
-                    <h3>Artigos recentes</h3>
+                <Container>
+                    <section className="articles-section">
+                        <h3>Artigos recentes</h3>
 
-                    <div className="articles">
-                        {posts && posts.map((post) => <Article key={post.fields.alias} data={post} />)}
-                    </div>
-                    <div className="more">
-                        <Button hoverColor="#c3b5d3" onClick={() => router.push('/articles')}>
-                            Ver mais
-                        </Button>
-                    </div>
-                </section>
+                        <div className="articles">
+                            {this.state.posts &&
+                                this.state.posts.map((post) => <Article key={post.fields.alias} data={post} />)}
+                        </div>
+                        <div className="more">
+                            <Button hoverColor="#c3b5d3" onClick={() => this.props.router.push('/articles')}>
+                                Ver mais
+                            </Button>
+                        </div>
+                    </section>
 
-                <Footer />
-            </Container>
-        </>
-    );
-};
+                    <Footer />
+                </Container>
+            </React.Fragment>
+        );
+    }
+}
 
-const phrases = ['build, create and share', 'be the change', 'Dream it...', 'Dream bigger.', "Don't limit yourself."];
-
-export default Dashboard;
+export default withRouter(Dashboard);
