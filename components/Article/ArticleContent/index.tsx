@@ -1,12 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FiTwitter, FiMail } from 'react-icons/fi';
-import { Post } from '../../types';
-import { Entry } from 'contentful';
+import { Article,  } from '../../../types';
 import { Container } from './styles';
-import DisqusComments from '../DisqusComments';
-import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import DisqusComments from '../../DisqusComments';
 import { format } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
+import Prism from 'prismjs'
 import {
     FacebookIcon,
     FacebookShareButton,
@@ -27,16 +26,18 @@ import {
 } from 'react-share';
 
 interface PostContentProps {
-    post: Entry<Post>;
+    article: Article;
 }
 
-const PostContent: React.FC<PostContentProps> = ({ post }) => {
-    const url = `https://rdn.now.sh/${post.fields.alias}`;
+const ArticleContent: React.FC<PostContentProps> = ({ article }) => {
+    const url = `https://rdn.now.sh/${article.data.slug}`;
 
-    function renderPostContent(body: any) {
-        const html = documentToHtmlString(body);
-        return html;
-    }
+
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            Prism.highlightAll();
+        }    
+    }, [])
 
     function formatDate(date: Date) {
         return format(new Date(date), "d 'de' MMMM 'de' Y", { locale: ptBR });
@@ -44,84 +45,84 @@ const PostContent: React.FC<PostContentProps> = ({ post }) => {
 
     return (
         <Container>
-            <h4 className="description">{post.fields.descricao}</h4>
+            <h4 className="description">{article.data.descricao}</h4>
 
             <div className="author">
                 <div className="pic">
                     <img
                         loading="lazy"
-                        src={post.fields.autor.fields?.foto?.fields?.file?.url}
-                        alt={post.fields.autor.fields.nome}
-                        title={post.fields.autor.fields.nome}
+                        src={article.data.autorFoto}
+                        alt={article.data.autor}
+                        title={article.data.autor}
                     />
                 </div>
 
                 <div className="info">
-                    <span>{post.fields.autor.fields.nome}</span>
-                    <time>{formatDate(post.fields.createdAt)}</time>
+                    <span>{article.data.autor}</span>
+                    <time>{formatDate(article.data.data)}</time>
                 </div>
 
                 <div className="contact">
-                    <a target="__blank" href={`https://twitter.com/${post.fields.autor.fields?.twitter}`}>
+                    <a target="__blank" href={`https://twitter.com/${article.data.twitter || ''}`}>
                         <FiTwitter color="#1da1f2" size={25} />
                     </a>
 
-                    <a href={`mailto:${post.fields.autor.fields.email}`}>
+                    <a href={`mailto:${article.data.autorEmail}`}>
                         <FiMail color="#e3cf65" size={25} />
                     </a>
                 </div>
             </div>
 
-            <div className="body" dangerouslySetInnerHTML={{ __html: renderPostContent(post.fields.body) }} />
-
+            <div className="body" dangerouslySetInnerHTML={{ __html: article.content }} /> 
+            
             <div className="share-container">
                 <div className="share">
-                    <FacebookShareButton url={url} quote={post.fields.titulo}>
+                    <FacebookShareButton url={url} quote={article.data.titulo}>
                         <FacebookIcon size={50} />
                     </FacebookShareButton>
 
-                    <WhatsappShareButton title={post.fields.titulo} url={url}>
+                    <WhatsappShareButton title={article.data.titulo} url={url}>
                         <WhatsappIcon size={50} />
                     </WhatsappShareButton>
 
-                    <TwitterShareButton title={post.fields.titulo} url={url}>
+                    <TwitterShareButton title={article.data.titulo} url={url}>
                         <TwitterIcon size={50} />
                     </TwitterShareButton>
 
-                    <TumblrShareButton url={url} title={post.fields.titulo} caption={post.fields.descricao}>
+                    <TumblrShareButton url={url} title={article.data.titulo} caption={article.data.descricao}>
                         <TumblrIcon size={50} />
                     </TumblrShareButton>
 
-                    <RedditShareButton url={url} title={post.fields.titulo}>
+                    <RedditShareButton url={url} title={article.data.titulo}>
                         <RedditIcon size={50} />
                     </RedditShareButton>
 
-                    <TelegramShareButton url={url} title={post.fields.titulo}>
+                    <TelegramShareButton url={url} title={article.data.titulo}>
                         <TelegramIcon size={50} />
                     </TelegramShareButton>
 
-                    <EmailShareButton url={url} subject={post.fields.titulo} body={post.fields.descricao}>
+                    <EmailShareButton url={url} subject={article.data.titulo} body={article.data.descricao}>
                         <EmailIcon size={50} />
                     </EmailShareButton>
 
                     <LinkedinShareButton
                         url={url}
                         source={url}
-                        title={post.fields.titulo}
-                        summary={post.fields.descricao}
+                        title={article.data.titulo}
+                        summary={article.data.descricao}
                     >
                         <LinkedinIcon size={50} />
                     </LinkedinShareButton>
                 </div>
 
                 <DisqusComments
-                    articleId={post.fields.alias}
-                    articleUrl={`https://rdn.now.sh/${post.fields.alias}`}
-                    articleTitle={post.fields.titulo}
+                    articleId={article.data.slug}
+                    articleUrl={`https://rdn.now.sh/${article.data.slug}`}
+                    articleTitle={article.data.titulo}
                 />
             </div>
         </Container>
     );
 };
 
-export default PostContent;
+export default ArticleContent;

@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import { NextPage } from 'next'; // eslint-disable-line
+import { GetStaticProps } from 'next'; // eslint-disable-line
 import { withRouter, NextRouter } from 'next/router';
-import contentful from '../services/contentful';
-import { Header, Article, Footer, Button, Head } from '../components';
+import { Header, Article, Footer, Head } from '../components';
 import styled from 'styled-components';
-import { Entry } from 'contentful'; // eslint-disable-line
-import { Post } from '../types'; // eslint-disable-line
+import { Article as IArticle } from '../types'; // eslint-disable-line
+import { formatArticles, getAllArticles } from '../lib/articles';
 
 const Container = styled.main`
     height: 100%;
@@ -52,38 +51,23 @@ interface WithRouterProps {
     router: NextRouter;
 }
 
-interface DashboardProps extends WithRouterProps {}
+interface DashboardProps extends WithRouterProps {
+    articleList: string;
+}
 
 interface DashboardState {
-    posts: Entry<Post>[];
+    articleList: IArticle;
 }
 
 class Dashboard extends Component<DashboardProps, DashboardState> {
+    private articleList = JSON.parse(this.props.articleList) as IArticle[];
+
     constructor(props) {
         super(props);
 
-        this.fetchPosts = this.fetchPosts.bind(this);
-
         this.state = {
-            posts: [],
+            articleList: JSON.parse(this.props.articleList),
         };
-    }
-
-    componentDidMount() {
-        this.fetchPosts();
-    }
-
-    async fetchPosts() {
-        try {
-            const response = await contentful.getEntries<Post>({
-                content_type: 'postagem',
-                limit: 5,
-            });
-
-            this.setState({ posts: response.items });
-        } catch (err) {
-            console.log(err);
-        }
     }
 
     render() {
@@ -97,16 +81,11 @@ class Dashboard extends Component<DashboardProps, DashboardState> {
 
                 <Container>
                     <section className="articles-section">
-                        <h3>Artigos recentes</h3>
+                        <h3>Recentes</h3>
 
                         <div className="articles">
-                            {this.state.posts &&
-                                this.state.posts.map((post) => <Article key={post.fields.alias} data={post} />)}
-                        </div>
-                        <div className="more">
-                            <Button hoverColor="#c3b5d3" onClick={() => this.props.router.push('/articles')}>
-                                Ver mais
-                            </Button>
+                            {this.articleList &&
+                                this.articleList.map((article) => <Article key={article.data.slug} data={article} />)}
                         </div>
                     </section>
 
@@ -116,5 +95,17 @@ class Dashboard extends Component<DashboardProps, DashboardState> {
         );
     }
 }
+
+export const getStaticProps: GetStaticProps = async () => {
+    const articleList = getAllArticles();
+
+    const t = formatArticles(articleList);
+
+    return {
+        props: {
+            articleList: JSON.stringify(t),
+        },
+    };
+};
 
 export default withRouter(Dashboard);

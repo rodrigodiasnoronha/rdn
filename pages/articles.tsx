@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
-import { NextPage } from 'next'; // eslint-disable-line
-import { Post } from '../types'; // eslint-disable-line
-import contentful from '../services/contentful';
-import { Entry } from 'contentful'; // eslint-disable-line
-import { Header, Error, Article, Button, SearchArticle, Footer, Head } from '../components';
+import React from 'react';
+import { GetStaticProps, NextPage } from 'next'; // eslint-disable-line
+import { Article as IArticle, Post } from '../types'; // eslint-disable-line
+import { Header, Article, Footer, Head } from '../components';
 import styled from 'styled-components';
+import { formatArticles, getAllArticles } from '../lib/articles';
 
 const Container = styled.article`
     width: 100%;
@@ -34,51 +33,11 @@ const Container = styled.article`
 `;
 
 interface ArticlesComponentProps {
-    posts: Entry<Post>[] | null;
-    error: boolean;
-    errorMessage: string;
-    total: number;
+    articleList: string;
 }
 
 const ArticlesComponent: NextPage<ArticlesComponentProps> = (props) => {
-    const { error, errorMessage, total } = props;
-
-    const [posts, setPosts] = useState<Entry<Post>[] | null>(props.posts);
-    const [loading, setLoading] = useState<boolean>(false);
-
-    async function getMorePosts() {
-        try {
-            if (posts.length >= total) {
-                return;
-            }
-
-            setLoading(true);
-
-            const skip = posts.length;
-            const response = await contentful.getEntries<Post>({ content_type: 'postagem', limit: 5, skip });
-
-            setPosts([...posts, ...response.items]);
-            setLoading(false);
-        } catch (err) {
-            setLoading(false);
-        }
-    }
-
-    if (error) {
-        return (
-            <React.Fragment>
-                <Head>
-                    <title key="title">404 | RDN Blog</title>
-                </Head>
-
-                <Header title="Share your knowledge" />
-
-                <Container>
-                    <Error message={errorMessage} />
-                </Container>
-            </React.Fragment>
-        );
-    }
+    const articleList = JSON.parse(props.articleList) as IArticle[];
 
     return (
         <React.Fragment>
@@ -89,56 +48,27 @@ const ArticlesComponent: NextPage<ArticlesComponentProps> = (props) => {
             <Header title="Share your knowledge" />
 
             <Container>
-                <SearchArticle updatePosts={setPosts} />
+                {/* <SearchArticle updatePosts={setPosts} /> */}
 
                 <h2>Últimas postagens</h2>
 
-                {posts.map((post) => (
-                    <Article data={post} key={post.fields.alias} />
+                {articleList.map((article) => (
+                    <Article data={article} key={article.data.slug} />
                 ))}
-
-                <div className="more">
-                    <Button disabled={loading} hoverColor="#c3b5d3" onClick={getMorePosts}>
-                        {total <= posts.length ? 'Não há mais artigos' : loading ? 'Carregando' : 'Mostrar mais'}
-                    </Button>
-                </div>
             </Container>
             <Footer />
         </React.Fragment>
     );
 };
 
-ArticlesComponent.getInitialProps = async () => {
-    let error = false;
-    let errorMessage = '';
-    let posts: Entry<Post>[] | null = null;
-    let total = 0;
+export const getStaticProps: GetStaticProps = async () => {
+    const articleList = getAllArticles();
 
-    try {
-        const response = await contentful.getEntries<Post>({
-            content_type: 'postagem',
-            limit: 5,
-        });
+    const t = formatArticles(articleList);
 
-        if (!response.items.length) {
-            error = true;
-            errorMessage = 'Nenhuma postagem encontrada';
-
-            return { posts, errorMessage, error, total };
-        }
-
-        return {
-            errorMessage,
-            error,
-            posts: response.items,
-            total: response.total,
-        };
-    } catch (err) {
-        errorMessage = 'Houve um erro ao mostrar a postagem';
-        error = true;
-
-        return { posts, errorMessage, error, total };
-    }
+    return {
+        props: { articleList: JSON.stringify(t) },
+    };
 };
 
 export default ArticlesComponent;

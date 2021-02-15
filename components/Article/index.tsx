@@ -1,13 +1,13 @@
 import React from 'react';
 import Link from 'next/link';
-import { Post } from '../../types';
+import { Article as IArticle, Post } from '../../types';
 import { Entry } from 'contentful';
 import { format } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 import { Container } from './styles';
 
 interface ArticleProps {
-    data: Entry<Post>;
+    data: IArticle;
 }
 
 const Article: React.FC<ArticleProps> = ({ data }) => {
@@ -18,13 +18,13 @@ const Article: React.FC<ArticleProps> = ({ data }) => {
     return (
         <Container>
             <div className="title">
-                <Link href={`/${data.fields.alias}`}>
-                    <a>{data.fields.titulo}</a>
+                <Link href={`/articles/${data.data.slug}`}>
+                    <a>{data.data.titulo}</a>
                 </Link>
             </div>
 
             <div className="date">
-                <time>{formatDate(data.fields.createdAt)}</time>
+                <time>{formatDate(data.data.data)}</time>
             </div>
         </Container>
     );

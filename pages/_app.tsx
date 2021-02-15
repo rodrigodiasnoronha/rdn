@@ -3,6 +3,10 @@ import { AppProps } from 'next/app';
 import GlobalStyles from '../components/GlobalStyles';
 import ErrorBoundary from '../components/ErrorBoundary';
 import NextNprogress from 'nextjs-progressbar';
+import '../styles/prism-dracula.css';
+import '../styles/global.css';
+import "tailwindcss/tailwind.css";
+
 
 const Global: React.FC<AppProps> = (props) => {
     const { Component, pageProps } = props;

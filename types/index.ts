@@ -42,3 +42,18 @@ export interface Post {
     thumb: Entry<Thumbnail>;
     autor: Entry<Author>;
 }
+
+export interface Article {
+    content: string;
+    isEmpty: boolean;
+    data: {
+        slug: string;
+        titulo: string;
+        descricao: string;
+        data: Date;
+        autor: string;
+        autorEmail: string;
+        autorFoto: string;
+        twitter?: string;
+    };
+}

@@ -103,42 +103,19 @@ export const Container = styled.article`
         flex-wrap: wrap;
     }
 
-    .body {
-        font-family: Jost, Arial, Helvetica, sans-serif;
-        font-weight: 400;
 
+    .body {
         max-width: 700px;
         width: 100%;
-        margin: 0px auto;
-        margin-bottom: 35px;
+        margin: 15px auto;
     }
 
-    .body * {
-        font-size: 1.2rem;
-        font-family: Jost, Roboto, Arial, Helvetica, sans-serif;
-    }
-
-    @media (max-width: 700px) {
-        .body {
-            padding: 0px 15px;
-            overflow-x: hidden;
-        }
-    }
-
-    .body a {
-        color: #fb7da7;
-    }
-
-    .body a:hover {
-        opacity: 0.5;
-        transition: opacity 1s;
-        text-decoration-style: solid;
-        text-decoration-line: underline;
-    }
-
-    .body a:active {
-        opacity: 0.2;
-        transition: opacity 0.5s;
+    .body h1,
+    .body h2,
+    .body h3,
+    .body h4 {
+        margin: 15px 0px;
+        font-weight: 500;
     }
 
     .body h5 {
@@ -152,64 +129,47 @@ export const Container = styled.article`
         font-weight: 500;
         margin: 20px 0px;
     }
+
     .body h3 {
         font-size: 32px;
         font-weight: 500;
         margin: 20px 0px;
     }
+
     .body h2 {
         font-size: 36px;
         font-weight: 500;
         margin: 20px 0px;
     }
+
     .body h1 {
         font-size: 40px;
         font-weight: 500;
         margin: 20px 0px;
     }
 
-    .body code {
-        font-family: monospace, consolas, sans-serif;
-        font-size: 87.5%;
-        color: #01579b;
-        word-wrap: break-word;
-    }
-    /* Estilos do Bootstrap (colei de node_modules/bootstrap/dist/css/boostrap.csss) */
-    .body img {
-        width: 100% !important;
-        margin: 25px 0px;
-    }
-
     .body {
-        table {
-            width: 100%;
-            margin-bottom: 1rem;
-            margin-top: 1rem;
-            color: #212529;
-            overflow-x: scroll;
-        }
-
-        table th,
-        table td {
-            padding: 0.75rem;
-            vertical-align: top;
-            border-top: 1px solid #dee2e6;
-        }
-
-        table thead th {
-            vertical-align: bottom;
-            border-bottom: 2px solid #dee2e6;
-        }
-
-        table tbody + tbody {
-            border-top: 2px solid #dee2e6;
-        }
-
-        table th {
-            color: #fff;
-            background-color: #343a40;
-            border-color: #454d55;
-            font-size: 20px;
-        }
+        font-weight: 400;
+        max-width: 700px;
+        width: 100%;
+        margin: 0px auto;
+        margin-bottom: 35px;
     }
+
+    .body p {
+        font-family: Roboto, Arial, Helvetica, sans-serif;
+        font-size: 1.2rem;
+        line-height: 30px;
+    }
+
+    .body pre {
+        border-radius: 4px;
+        margin: 30px 0px;
+    }
+
+    .body pre * {
+        font-family: consolas, sans-serif;
+    }
+
+
 `;
