@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Post } from '../../types'; // eslint-disable-line
 import { FiSearch } from 'react-icons/fi';
 import { Form } from './styles';
 
-const Search: React.FC<Props> = () => {
+const Search: React.FC = () => {
     const [query, setQuery] = useState<string>('');
     const [error, setError] = useState<string>('');
 
