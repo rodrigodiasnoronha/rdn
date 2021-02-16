@@ -44,6 +44,21 @@ Agora, criaremos o componente que encapsulará nossa aplicação e ficará ouvin
 import React, { Component } from 'react';
 
 class ErrorBoundary extends Component {
+
+    render() {
+        return <React.Fragment>{this.props.children}</React.Fragment>;
+    }
+}
+
+export default ErrorBoundary;
+```
+
+Um componente normal, que encapsulará nossa aplicação, mas o React possui um método específico para este componente ficar ouvindo os crashes, que seria o méotod componentDidCatch. Este método recebe o error e as informações do erro. No caso você poderia fazer alguma tratamento deste erro ou simplesmente renderizar algum componente que evite o erro na tela do usuário. Seria algo assim, no caso:
+
+```js 
+import React, { Component } from 'react';
+
+class ErrorBoundary extends Component {
     constructor(props) {
         super(props);
 
@@ -70,11 +85,26 @@ class ErrorBoundary extends Component {
 }
 
 export default ErrorBoundary;
-
 ```
 
-Um componente normal, que encapsulará nossa aplicação, mas o React possui um método específico para este componente ficar ouvindo os crashes, que seria o méotod componentDidCatch. Este método recebe o error e as informações do erro. No caso você poderia fazer alguma tratamento deste erro ou simplesmente renderizar algum componente que evite o erro na tela do usuário. Seria algo assim, no caso:
+
 
 Feito, isso fará a mensagem de erro ser imprimida ao invés de seus filhos com o erro serem mostrados.
 
 Mas lembre-se de encapsular sua aplicação dentro dessa classe. Segue abaixo:
+
+```js
+import React from 'react';
+
+const Global = (props) => {
+    const { Component, pageProps } = props;
+
+    return (
+        <ErrorBoundary>
+            <Component {...pageProps} />
+        </ErrorBoundary>
+    );
+};
+
+export default Global;
+```
