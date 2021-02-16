@@ -6,7 +6,6 @@ slug: estilos-blocos-codigo
 data: Sun Feb 14 2021 16:35:34 GMT-0300 (GMT-03:00)
 twitter: xxxkckkxkxxk
 autorEmail:rodrigodnoronha@gmail.com 
-autorFoto: https://pbs.twimg.com/profile_images/1340832167778238465/twOdLLSa.jpg
 ---
 
 Basicamente
