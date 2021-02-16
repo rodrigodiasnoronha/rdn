@@ -1,4 +1,7 @@
-## My Personal Blog
+## Web site pessoas
 
--   Made with Next.JS, React and Contentful CMS
--   Stylized with Styled-Components
+#### Construído com:
+- React 
+- NextJS
+- Styled Components
+- TailwindCSS
