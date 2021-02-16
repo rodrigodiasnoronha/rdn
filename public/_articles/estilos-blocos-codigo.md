@@ -5,7 +5,7 @@ autor: Rodrigo Dias Noronha
 slug: estilos-blocos-codigo
 data: Sun Feb 14 2021 16:35:34 GMT-0300 (GMT-03:00)
 twitter: xxxkckkxkxxk
-autorEmail:rodrigodnoronha@gmail.com 
+autorEmail: rodrigodnoronha@gmail.com 
 ---
 
 Basicamente
