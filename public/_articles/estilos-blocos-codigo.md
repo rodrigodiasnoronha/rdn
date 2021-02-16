@@ -9,7 +9,11 @@ autorEmail:rodrigodnoronha@gmail.com
 autorFoto: https://pbs.twimg.com/profile_images/1340832167778238465/twOdLLSa.jpg
 ---
 
+Basicamente
 
+Este bloco de código funciona somente no onde, você precisa formatar o html para renderizar corretamente os blocos de código. 
+
+Ele utilizar os estilos do PrismJS, logo você também precisa importar o CSS deles no teu front.
 
 ```js
 
