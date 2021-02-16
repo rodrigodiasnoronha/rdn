@@ -40,6 +40,39 @@ $ npx create-react-app error-boundaries
 ```
 Agora, criaremos o componente que encapsulará nossa aplicação e ficará ouvindo erros. Eu criei o boundary.js e coloque o código abaixo nele
 
+```js 
+import React, { Component } from 'react';
+
+class ErrorBoundary extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            error: false,
+        };
+    }
+
+    componentDidCatch(error, errorInfo) {
+        this.setState({ error: true });
+    }
+
+    render() {
+        if (this.state.error) {
+            return (
+                <div>
+                    <h2>Ocorreu um erro. Atualize a página e tente novamente</h2>
+                </div>
+            );
+        }
+
+        return <React.Fragment>{this.props.children}</React.Fragment>;
+    }
+}
+
+export default ErrorBoundary;
+
+```
+
 Um componente normal, que encapsulará nossa aplicação, mas o React possui um método específico para este componente ficar ouvindo os crashes, que seria o méotod componentDidCatch. Este método recebe o error e as informações do erro. No caso você poderia fazer alguma tratamento deste erro ou simplesmente renderizar algum componente que evite o erro na tela do usuário. Seria algo assim, no caso:
 
 Feito, isso fará a mensagem de erro ser imprimida ao invés de seus filhos com o erro serem mostrados.
