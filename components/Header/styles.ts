@@ -76,6 +76,8 @@ export const Container = styled.header<{ image: string }>`
         flex-direction: column;
         justify-content: center;
         align-items: center;
+
+        padding: 15px;
     }
 
     .phrase-container h3 {
@@ -95,6 +97,7 @@ export const Container = styled.header<{ image: string }>`
         color: #ccc;
         font-family: Roboto, Jost, Arial, Helvetica, sans-serif;
         font-weight: 400;
+        margin-top: 10px;
     }
 
     @media (max-width: 700px) {

@@ -21,7 +21,7 @@ const PostComponent: NextPage<Props> = (props) => {
     const article = JSON.parse(props.article) as Article;
 
     function formatDate(date: Date) {
-        return format(new Date(date), "d 'de' MMMM 'de' Y", { locale: ptBR });
+        return format(new Date(date), "d 'de' MMMM 'de' Y 'às' HH:mm", { locale: ptBR });
     }
 
     return (

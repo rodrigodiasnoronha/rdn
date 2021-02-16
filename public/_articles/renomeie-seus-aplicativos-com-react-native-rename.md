@@ -3,10 +3,10 @@ titulo: Renomeie seus aplicativos com React Native Rename
 descricao:  O Jeito mais fácil de você renomear suas aplicações React Native
 autor: Rodrigo Dias Noronha
 slug: renomeie-seus-aplicativos-com-react-native-rename
-data: Sun Feb 14 2021 16:35:34 GMT-0300 (GMT-03:00)
+data: Sun Feb 14 2020 16:35:34 GMT-0300 (GMT-03:00)
 twitter: xxxkckkxkxxk
 autorEmail: rodrigodnoronha@gmail.com
-autorFoto: https://spng.pngfind.com/pngs/s/16-168465_aws-simple-icons-non-service-specific-user-default.png
+autorFoto: https://pbs.twimg.com/profile_images/1340832167778238465/twOdLLSa_400x400.jpg
 ---
 
 Olá, pessoal.
@@ -23,8 +23,6 @@ Com ela é bem simples nomear e renomear seu aplicativo, com um simples comando 
 Basta rodar o seguinte comando no terminal:
 
 ```bash
-
-
     $ npx react-native-rename <novoNome>
 ```
 

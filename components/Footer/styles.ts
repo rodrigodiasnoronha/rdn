@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.footer`
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 
     border: 1px solid transparent;

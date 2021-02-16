@@ -6,7 +6,7 @@ slug: react-error-boundaries-evitando-quebras-na-sua-aplicacao
 data: Sun Feb 14 2021 16:35:34 GMT-0300 (GMT-03:00)
 twitter: xxxkckkxkxxk
 autorEmail: rodrigodnoronha@gmail.com
-autorFoto: https://spng.pngfind.com/pngs/s/16-168465_aws-simple-icons-non-service-specific-user-default.png
+autorFoto: https://pbs.twimg.com/profile_images/1340832167778238465/twOdLLSa_400x400.jpg
 ---
 
 
@@ -40,7 +40,7 @@ $ npx create-react-app error-boundaries
 ```
 Agora, criaremos o componente que encapsulará nossa aplicação e ficará ouvindo erros. Eu criei o boundary.js e coloque o código abaixo nele
 
-```js 
+```jsx
 import React, { Component } from 'react';
 
 class ErrorBoundary extends Component {
@@ -55,7 +55,7 @@ export default ErrorBoundary;
 
 Um componente normal, que encapsulará nossa aplicação, mas o React possui um método específico para este componente ficar ouvindo os `crashes`, que seria o método `componentDidCatch`. Este método recebe o error e as informações do erro. No caso você poderia fazer alguma tratamento deste erro ou simplesmente renderizar algum componente que evite o erro na tela do usuário. Seria algo assim, no caso:
 
-```js 
+```jsx
 import React, { Component } from 'react';
 
 class ErrorBoundary extends Component {
@@ -93,7 +93,7 @@ Feito, isso fará a mensagem de erro ser imprimida ao invés de seus filhos com 
 
 Mas lembre-se de encapsular sua aplicação dentro dessa classe. Segue abaixo:
 
-```js
+```jsx
 import React from 'react';
 
 const Global = (props) => {

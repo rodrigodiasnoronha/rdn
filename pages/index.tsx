@@ -64,20 +64,18 @@ class Dashboard extends Component<DashboardProps, DashboardState> {
 
     constructor(props) {
         super(props);
-
-        this.state = {
-            articleList: JSON.parse(this.props.articleList),
-        };
     }
 
     render() {
+
+        this.articleList.sort((a, b) =>  new Date(b.data.data) - new Date(a.data.data)).slice(1, 5);
         return (
             <React.Fragment>
                 <Head>
                     <title key="title">Home | RDN Blog</title>
                 </Head>
 
-                <Header title="Build, Create and Share" />
+                <Header title="Pense, construa e compartilhe" />
 
                 <Container>
                     <section className="articles-section">

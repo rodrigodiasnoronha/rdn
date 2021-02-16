@@ -45,7 +45,7 @@ const ArticlesComponent: NextPage<ArticlesComponentProps> = (props) => {
                 <title key="title">Artigos | RDN Blog</title>
             </Head>
 
-            <Header title="Share your knowledge" />
+            <Header title="Compartilhe conhecimento" />
 
             <Container>
                 {/* <SearchArticle updatePosts={setPosts} /> */}

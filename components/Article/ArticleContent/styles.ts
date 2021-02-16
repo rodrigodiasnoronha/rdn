@@ -108,6 +108,7 @@ export const Container = styled.article`
         max-width: 700px;
         width: 100%;
         margin: 15px auto;
+        padding: 0px 15px;
     }
 
     .body h1,
@@ -160,6 +161,19 @@ export const Container = styled.article`
         font-family: Roboto, Arial, Helvetica, sans-serif;
         font-size: 1.2rem;
         line-height: 30px;
+        margin-top: 10px;
+    }
+
+    .body p code {
+        background-color: rgba(40, 41, 54, 1);
+        color: #ccc;
+        padding: 0px 10px;
+        margin: 0px 5px;
+        border-radius: 5px;
+        border: 0px solid transparent;
+        font-family: JetBrains Mono, sans-serif;
+        font-weight: 400;
+        font-size: 14px;
     }
 
     .body pre {
@@ -168,8 +182,16 @@ export const Container = styled.article`
     }
 
     .body pre * {
-        font-family: consolas, sans-serif;
+        font-family: JetBrains Mono, sans-serif;
     }
 
 
+    @media (max-width: 490px) {
+        .body p {
+            font-family: Roboto, Arial, Helvetica, sans-serif;
+            font-size: 1.1rem;
+            line-height: 30px;
+            margin-top: 10px;
+        }
+    }
 `;
