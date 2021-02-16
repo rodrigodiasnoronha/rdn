@@ -68,7 +68,6 @@ class Dashboard extends Component<DashboardProps, DashboardState> {
 
     render() {
 
-        this.articleList.sort((a, b) =>  new Date(b.data.data) - new Date(a.data.data)).slice(1, 5);
         return (
             <React.Fragment>
                 <Head>
