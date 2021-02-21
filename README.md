@@ -1,7 +1,7 @@
-## Web site pessoas
+## Repositório do meu Web site pessoal
 
 #### Construído com:
 - React 
 - NextJS
 - Styled Components
-- TailwindCSS
+- Static Generation
