@@ -157,11 +157,33 @@ export const Container = styled.article`
         margin-bottom: 35px;
     }
 
+    .body img {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
     .body p {
         font-family: Roboto, Arial, Helvetica, sans-serif;
         font-size: 1.2rem;
         line-height: 30px;
         margin-top: 10px;
+    }
+
+    .body ul {
+        padding: 15px 20px 20px 20px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    .body ul li {
+        font-family: Roboto, Arial, Helvetica, sans-serif;
+        font-size: 1rem;
+        line-height: 25px;
+        margin: 10px;
+        font-weight: 500;
+        list-style: disc;
     }
 
     .body p code {
