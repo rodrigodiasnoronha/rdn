@@ -11,14 +11,16 @@ autorFoto: https://pbs.twimg.com/profile_images/1340832167778238465/twOdLLSa_400
 
 Fala, pessoal! Saudações!
 
-Aqui tentarei explicar para vocês como desenvolver dar um `start` de um Bot para Discord utilizando TypeScript. Eis umas anotações sobre nosso projeto:
+Aqui tentarei explicar para vocês como dar um `start` no desenvolvimento de um Bot para Discord utilizando TypeScript. Deixei separado algumas anotações sobre nosso projeto:
 
 -   Utilizaremos a [API do Discord para javascript](https://discord.js.org/#/) para desenvolver nosso BOT.
 -   Utilizaremos TypeScript
 -   Utilizaremos o TypeORM para armazenar nossos dados (será abordado mais pra frente)
 -   Também deixaremos ele com internacionalização (vamos estruturar isso mais a frente também)
 
-Se você não teve algum contato com criação de Bots para Discord, sugiro dar uma olhada no [guia oficial da API do Discord.js](https://discordjs.guide/), nele contém algumas informações importantes acerca de vários tópicos que interessantes na hora de desenvolver. Caso você se aventure a fundo no desenvolvimento, pode ter este guia como base para futuros problemas (que sempre aparecem).
+Lógico, este conteúdo irá conter somente a criação do bot, pretendo colocar a estruturação e conexão com database usando TypeORM em outros artigos.
+
+Se você nunca teve contato com criação de Bots para Discord, sugiro dar uma olhada no [guia oficial da API do Discord.js](https://discordjs.guide/), nele contém algumas informações importantes acerca de vários tópicos que interessantes na hora de desenvolver. Caso você se aventure a fundo no desenvolvimento, pode ter este guia como base para futuros problemas (que sempre aparecem).
 
 ### Vamos lá
 
