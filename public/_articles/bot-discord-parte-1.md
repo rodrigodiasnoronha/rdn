@@ -92,7 +92,7 @@ BOT_TOKEN=cole_seu_token_aqui
 
 Criar uma pasta `src` e criar um arquivo chamado `index.ts` dentro.
 
--   Nosso arquivo `src/index.ts` será o arquivo de entrada de nosso BOT, então o passo vai ser o seguinte: vamos criar uma classe que será responsável por dar um `start` no nosso bot.
+Nosso arquivo `src/index.ts` será o arquivo de entrada de nosso BOT, então o passo vai ser o seguinte: vamos criar uma classe que será responsável por dar um `start` no nosso bot.
 
 ```ts
 // src/index.ts
