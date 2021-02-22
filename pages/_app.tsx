@@ -8,6 +8,8 @@ import 'prismjs';
 import 'prismjs/components/prism-jsx.min.js';
 import 'prismjs/components/prism-tsx.min.js';
 import 'prismjs/components/prism-typescript.min.js';
+import 'prismjs/components/prism-bash.min.js';
+import 'prismjs/components/prism-json.min.js';
 
 const Global: React.FC<AppProps> = (props) => {
     const { Component, pageProps } = props;
