@@ -205,6 +205,7 @@ export const Container = styled.article`
 
     .body pre * {
         font-family: JetBrains Mono, sans-serif;
+        font-size: 1rem;
     }
 
 
