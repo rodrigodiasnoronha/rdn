@@ -6,6 +6,7 @@ import NextNprogress from 'nextjs-progressbar';
 import '../styles/prism-dracula.css';
 import 'prismjs';
 import 'prismjs/components/prism-jsx.min.js';
+import 'prismjs/components/prism-tsx.min.js';
 import 'prismjs/components/prism-typescript.min.js';
 
 const Global: React.FC<AppProps> = (props) => {
