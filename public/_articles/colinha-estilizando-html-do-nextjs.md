@@ -11,11 +11,11 @@ autorFoto: https://pbs.twimg.com/profile_images/1340832167778238465/twOdLLSa_400
 
 Boa tarde, leitor!
 
-Estou deixando abaixo uma cola de como estilizar o HTML do Nestjs, para consulta quando eu (ou você) esquecer de como configurar.
+Estou deixando abaixo uma cola de como estilizar o HTML do Nextjs, para consulta quando eu (ou você) esquecer de como configurar.
 
 Até porque, senhores, não tem como decorar todo código que se faz e se vê por aí! 
 
-PS: É o arquivo `_document.tsx` no diretório `pages`. Por questão de recomendação da equipe do NextJS, é recomendado criar este componente em formato de classe.
+PS: É o arquivo `_document.tsx`, no diretório `pages`. Por questão de recomendação da equipe do NextJS, é recomendado criar este componente em formato de classe.
 
 ```tsx
 import Document, { Html, Head, Main, NextScript } from 'next/document';
