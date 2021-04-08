@@ -3,7 +3,7 @@ titulo: Colinha - Estilizando HTML do NextJS
 descricao: Uma breve explicação de como estilizar o HTML do NextJS
 autor: Rodrigo Dias Noronha
 slug: colinha-estilizando-html-do-nextjs
-data: Wed Feb 24 2021 12:26:34 GMT-0300 (GMT-03:00)
+data: Sun Feb 14 2020 16:35:34 GMT-0300 (GMT-03:00)
 twitter: xxxkckkxkxxk
 autorEmail: rodrigodnoronha@gmail.com
 autorFoto: https://pbs.twimg.com/profile_images/1340832167778238465/twOdLLSa_400x400.jpg

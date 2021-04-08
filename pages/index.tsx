@@ -68,6 +68,9 @@ class Dashboard extends Component<DashboardProps, DashboardState> {
 
     render() {
 
+        let articleListOrdened = this.articleList.sort((a, b) => a.data.data > b.data.data ? 1 : -1)
+
+
         return (
             <React.Fragment>
                 <Head>
@@ -81,8 +84,8 @@ class Dashboard extends Component<DashboardProps, DashboardState> {
                         <h3>Recentes</h3>
 
                         <div className="articles">
-                            {this.articleList &&
-                                this.articleList.map((article) => <Article key={article.data.slug} data={article} />)}
+                            {articleListOrdened &&
+                                articleListOrdened.map((article) => <Article key={article.data.slug} data={article} />)}
                         </div>
                     </section>
 
