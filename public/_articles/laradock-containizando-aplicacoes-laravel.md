@@ -26,3 +26,34 @@ Clone o repositório do [Laradock](https://github.com/laradock/laradock) dentro 
 Acesse a pasta `laradock`, dentro do seu projeto. Em seguida, você pode copiar todo o conteúdo do arquivo `env.example` para um novo arquivo `.env`
 
 ## Passo 4
+
+Agora, abra o TEU arquivo `.env`, o na raiz do teu projeto (não o do Laradock) e substitua as seguintes variáveis de ambiente:
+```env
+  
+DB_CONNECTION=pgsql
+DB_HOST=postgres
+DB_PORT=5432
+DB_DATABASE=default
+DB_USERNAME=default
+DB_PASSWORD=secret
+```
+
+Na verdade, essas variáveis estão no `.env` do Laradock, então você precisa deixar exatamente igual, para não houver erros de conexão.
+
+## Passo 5
+
+Execute o seguinte comando
+```bash
+$ sudo docker-compose up -d nginx postgres
+```
+
+Para rodar as migrations e acessar o terminal pelo teu projeto:
+```bash
+$ sudo docker-compose exec workspace bash
+```
+
+Agora, você terá acesso ao terminal do projeto, você precisa rodar `composer install` e `php artisan migrate` ou comandos do PHP de sua preferência.
+
+
+
+[Link da fonte (e também ele deve receber os créditos por isso rsrs)](https://medium.com/@arikardnoir/dockerize-sua-aplica%C3%A7%C3%A3o-laravel-postgres-usando-o-laradock-f228cc426638)
