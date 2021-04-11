@@ -21,7 +21,7 @@ const Container = styled.main`
     }
 
     section > p {
-        font-family: monospace;
+        font-family: Roboto Mono, monospace, Arial, Helvetica, sans-serif;
         font-weight: 500;
         font-size: 18px;
         line-height: 1.7rem;
@@ -52,7 +52,7 @@ const Container = styled.main`
     }
 
     .sobre-mim .descricao p {
-        font-family: monospace;
+        font-family: Roboto Mono, monospace, Arial, Helvetica, sans-serif;
         font-weight: 500;
         font-size: 20px;
         line-height: 1.7rem;
@@ -134,7 +134,7 @@ const Course = styled.div`
     a,
     span {
         font-size: 15px;
-        font-family: monospace;
+        font-family: Roboto Mono, monospace, Arial, Helvetica, sans-serif;
     }
 
     a {
@@ -143,6 +143,10 @@ const Course = styled.div`
 
     @media (max-width: 490px) {
         padding: 10px;
+
+        > div {
+            padding-left: 0px;
+        }
     }
 `;
 
@@ -166,7 +170,7 @@ const Project = styled.div`
     }
 
     p.descricao {
-        font-family: monospace;
+        font-family: Roboto Mono, monospace, Arial, Helvetica, sans-serif;
         font-weight: 500;
         font-size: 18px;
         line-height: 1.7rem;

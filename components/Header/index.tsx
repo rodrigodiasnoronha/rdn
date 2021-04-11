@@ -53,7 +53,7 @@ const Header: React.FC<Props> = ({ backgroundImage, title, date }) => {
                             </Link>
                         </li>
                         <li>
-                            <Link href="/me">Sobre</Link>
+                            <Link href="/me">Sobre mim</Link>
                         </li>
                     </ul>
                 </div>

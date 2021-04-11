@@ -22,17 +22,12 @@ export const Container = styled.header<{ image: string }>`
         align-items: center;
         padding: 0px 25px;
 
-        background: linear-gradient(
-            to bottom,
-            rgba(0, 0, 0, 0.8),
-            rgba(0, 0, 0, 0)
-        );
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
     }
 
     .title h1 {
-        font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI',
-            Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
-            sans-serif;
+        font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
+            'Open Sans', 'Helvetica Neue', sans-serif;
         font-weight: 500;
         color: #fff;
         letter-spacing: 4.5px;
@@ -51,9 +46,8 @@ export const Container = styled.header<{ image: string }>`
     }
 
     .navbar ul li a {
-        font-family: Jost, Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI',
-            Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
-            sans-serif;
+        font-family: Jost, Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
+            'Open Sans', 'Helvetica Neue', sans-serif;
         font-weight: 500;
         font-size: 18px;
         text-transform: uppercase;
@@ -81,7 +75,7 @@ export const Container = styled.header<{ image: string }>`
     }
 
     .phrase-container h3 {
-        font-family: Balsamiq Sans, Roboto, Arial, Helvetica, sans-serif;
+        font-family: Roboto, Arial, Helvetica, sans-serif;
         font-weight: 400;
         font-size: 40px;
         text-align: center;
@@ -124,9 +118,8 @@ export const Container = styled.header<{ image: string }>`
         }
 
         .mobile a {
-            font-family: Jost, Roboto, -apple-system, BlinkMacSystemFont,
-                'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
-                'Helvetica Neue', sans-serif;
+            font-family: Jost, Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
+                'Open Sans', 'Helvetica Neue', sans-serif;
             font-weight: 500;
             font-size: 18px;
             text-transform: uppercase;
