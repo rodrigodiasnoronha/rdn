@@ -1,7 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Article as IArticle, Post } from '../../types';
-import { Entry } from 'contentful';
+import { Article as IArticle } from '../../types';
 import { format } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 import { Container } from './styles';
