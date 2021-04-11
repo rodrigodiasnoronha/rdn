@@ -368,13 +368,30 @@ const projects = [
         ],
     },
     {
+        name: 'Type Racing',
+        description:
+            'SPA intuitiva que possui, como objetivo, te mostrar quantas palavras você consegue digitar em 1 minuto. Similar aquele site 10fastfingers',
+        link: 'https://loli-type-racing.vercel.app/',
+        tags: [{ name: 'Vue', color: '#44cc0f' }],
+    },
+    {
+        name: 'Beatrice BOT',
+        description:
+            'Uma  BOT para Discord que visa ser completa. Com comandos de moderação, diversão e entretenimento',
+        link: 'https://github.com/rodrigodiasnoronha/beatrice',
+        tags: [
+            { name: 'Node', color: '#44cc0f' },
+            { name: 'Discord.js', color: '#1976d2' },
+        ],
+    },
+    {
         name: 'Be The Hero',
         description:
             'Aplicação Web e Mobile voltada para resolver casos de ONGs independentes. Criada com Node, React e React Native no evento Omnistack, produzido pela Rocketseat',
         link: 'https://github.com/rodrigodiasnoronha/be-the-hero/tree/master/screenshots',
         tags: [
             { name: 'React', color: '#039be5' },
-            { name: 'Node', color: '#64dd17' },
+            { name: 'Node', color: '#44cc0f' },
             { name: 'Rocketseat', color: '#b388ff' },
         ],
     },
