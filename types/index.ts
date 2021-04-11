@@ -1,5 +1,3 @@
-import { Entry } from 'contentful';
-
 export interface Thumbnail {
     title: string;
     description: string;
@@ -22,25 +20,6 @@ export interface Avatar {
             size: number;
         };
     };
-}
-
-export interface Author {
-    foto: Entry<Avatar>;
-    bio: string;
-    email: string;
-    nome: string;
-    twitter: string;
-    funcao: string;
-}
-
-export interface Post {
-    alias: string;
-    body: Entry<object>;
-    createdAt: Date;
-    descricao: string;
-    titulo: string;
-    thumb: Entry<Thumbnail>;
-    autor: Entry<Author>;
 }
 
 export interface Article {
