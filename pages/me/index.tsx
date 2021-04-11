@@ -128,6 +128,7 @@ const Course = styled.div`
     h5 {
         font-size: 18px;
         font-weight: 500;
+        margin-bottom: 8px;
     }
 
     a,
@@ -138,6 +139,10 @@ const Course = styled.div`
 
     a {
         color: #03a9f4;
+    }
+
+    @media (max-width: 490px) {
+        padding: 10px;
     }
 `;
 
@@ -157,7 +162,7 @@ const Project = styled.div`
 
     h5.titulo {
         font-size: 24px;
-        font-wei    ght: 500;
+        font-weight: 500;
     }
 
     p.descricao {
@@ -177,7 +182,12 @@ const Project = styled.div`
     @media (max-width: 1024px) {
         p.descricao {
             font-size: 16px;
+            padding-left: 0px;
         }
+    }
+
+    @media (max-width: 490px) {
+        padding: 10px;
     }
 `;
 
