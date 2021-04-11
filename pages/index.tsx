@@ -5,6 +5,7 @@ import { Header, Article, Footer, Head } from '../components';
 import styled from 'styled-components';
 import { Article as IArticle } from '../types'; // eslint-disable-line
 import { formatArticles, getAllArticles } from '../lib/articles';
+import RecentArticles from '../components/RecentArticles';
 
 const Container = styled.main`
     height: 100%;
@@ -60,17 +61,11 @@ interface DashboardState {
 }
 
 class Dashboard extends Component<DashboardProps, DashboardState> {
-    private articleList = JSON.parse(this.props.articleList) as IArticle[];
-
     constructor(props) {
         super(props);
     }
 
     render() {
-
-        let articleListOrdened = this.articleList.sort((a, b) => a.data.data > b.data.data ? 1 : -1)
-
-
         return (
             <React.Fragment>
                 <Head>
@@ -80,15 +75,7 @@ class Dashboard extends Component<DashboardProps, DashboardState> {
                 <Header title="Pense, construa e compartilhe" />
 
                 <Container>
-                    <section className="articles-section">
-                        <h3>Recentes</h3>
-
-                        <div className="articles">
-                            {articleListOrdened &&
-                                articleListOrdened.map((article) => <Article key={article.data.slug} data={article} />)}
-                        </div>
-                    </section>
-
+                    <RecentArticles articleList={this.props.articleList} />
                     <Footer />
                 </Container>
             </React.Fragment>
