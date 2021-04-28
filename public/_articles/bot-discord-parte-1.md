@@ -6,7 +6,7 @@ slug: bot-discord-parte-1
 data: Sun Feb 21 2021 19:19:34 GMT-0300 (GMT-03:00)
 twitter: xxxkckkxkxxk
 autorEmail: rodrigodnoronha@gmail.com
-autorFoto: https://pbs.twimg.com/profile_images/1340832167778238465/twOdLLSa_400x400.jpg
+autorFoto: https://avatars.githubusercontent.com/u/63525765?v=4
 ---
 
 Fala, pessoal! Saudações!

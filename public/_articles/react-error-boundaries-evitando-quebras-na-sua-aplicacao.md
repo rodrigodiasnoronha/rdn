@@ -1,19 +1,17 @@
 ---
 titulo: Error Boundaries - Evitando quebras em suas aplicações ReactJS
-descricao:  Uma maneira simples de como evitar que sua aplicação quebre em produção
+descricao: Uma maneira simples de como evitar que sua aplicação quebre em produção
 autor: Rodrigo Dias Noronha
 slug: react-error-boundaries-evitando-quebras-na-sua-aplicacao
 data: Sun Feb 14 2021 16:35:34 GMT-0300 (GMT-03:00)
 twitter: xxxkckkxkxxk
 autorEmail: rodrigodnoronha@gmail.com
-autorFoto: https://pbs.twimg.com/profile_images/1340832167778238465/twOdLLSa_400x400.jpg
+autorFoto: https://avatars.githubusercontent.com/u/63525765?v=4
 ---
-
 
 Quebras em producão.
 
 Não é nada amigável para os seus usuários que seja mostrada uma mensagem de erro com vários códigos que eles (provavelmente) não entendam, certo? Pois isso acontece quando sua aplicação React quebra, e eis que a equipe do ReactJS trouxe uma funcionalidade na lib que resolve essa questão: os Error Boundaries.
-
 
 ### O que são?
 
@@ -33,18 +31,19 @@ Estou criando um projeto React (com next), você pode criar com o CRA normalment
 
 $ npx create-next-app error-boundaries
 ```
+
 Ou
 
 ```bash
 $ npx create-react-app error-boundaries
 ```
+
 Agora, criaremos o componente que encapsulará nossa aplicação e ficará ouvindo erros. Eu criei o boundary.js e coloque o código abaixo nele
 
 ```jsx
 import React, { Component } from 'react';
 
 class ErrorBoundary extends Component {
-
     render() {
         return <React.Fragment>{this.props.children}</React.Fragment>;
     }
@@ -86,8 +85,6 @@ class ErrorBoundary extends Component {
 
 export default ErrorBoundary;
 ```
-
-
 
 Feito, isso fará a mensagem de erro ser imprimida ao invés de seus filhos com o erro serem mostrados.
 

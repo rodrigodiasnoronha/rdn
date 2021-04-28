@@ -1,41 +1,33 @@
 ---
 titulo: Beautify code in your Next.js blog
-descricao:  code in your Next.js blog
+descricao: code in your Next.js blog
 autor: Rodrigo Dias Noronha
 slug: beautiful-code-in-your-nextjs-project
 data: Sun Feb 14 2021 16:35:34 GMT-0300 (GMT-03:00)
 twitter: xxxkckkxkxxk
 autorEmail: rodrigodnoronha@gmail.com
-autorFoto: https://pbs.twimg.com/profile_images/1340832167778238465/twOdLLSa_400x400.jpg
+autorFoto: https://avatars.githubusercontent.com/u/63525765?v=4
 ---
 
-
 It definitely took me way too long to get code blocks correctly highlighted on my blog. Next.js seems to have less tutorials out there in general, especially for specific use cases like these. I hope to fix that, at least a little bit, with my own blog. As I experience issues and overcome each challenge, my plan is to write up a post about it. Here's #1!
-
 
 ### Quick Background
 
 As a starting point, I want to outline the architecture of my website. As Next.js goes, I have page components in the /pages directory. Blog posts are generated dynamically via the `/pages/blog/[slug].tsx` page, where the getInitialProps function pulls content from the .md files located in the /posts folder.
 
-
 ### Before Highlight.js
 
 For a visual, below is what the BlogPostTemplate component looked like before I did anything fancy. I will only include the relevant code to keep it short, but feel free to view the entire file in the repo.
 
-
 ```jsx
 <article className="mb-10 markdown">
-  <header>
-    <h1 className="text-5xl">{frontmatter.title}</h1>
-  </header>
-    <div className="mb-5 my-auto text-sm font-semibold text-neutral-400">
-      {reformatDate(frontmatter.date)}
+    <header>
+        <h1 className="text-5xl">{frontmatter.title}</h1>
+    </header>
+    <div className="mb-5 my-auto text-sm font-semibold text-neutral-400">{reformatDate(frontmatter.date)}</div>
+    <div>
+        <ReactMarkdown source={markdownBody} />
     </div>
-  <div>
-    <ReactMarkdown
-      source={markdownBody}
-    />
-  </div>
 </article>
 ```
 

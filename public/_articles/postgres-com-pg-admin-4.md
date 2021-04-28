@@ -1,12 +1,12 @@
 ---
-titulo: Docker com Postgres e PGAdmin4
-descricao: code in your Next.js blog
+titulo: Docker com Postgres e PG Admin 4
+descricao: O jeito mais fácil de unir essas duas ferramentas
 autor: Rodrigo Dias Noronha
 slug: postgres-com-pg-admin-4
 data: Tue Apr 27 2021 22:10:35 GMT-0300 (Horário Padrão de Brasília)
 twitter: xxxkckkxkxxk
 autorEmail: rodrigodnoronha@gmail.com
-autorFoto: https://pbs.twimg.com/profile_images/1340832167778238465/twOdLLSa_400x400.jpg
+autorFoto: https://avatars.githubusercontent.com/u/63525765?v=4
 ---
 
 Hey, guys!

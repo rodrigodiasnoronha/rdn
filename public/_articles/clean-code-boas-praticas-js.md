@@ -1,12 +1,12 @@
 ---
 titulo: Clean Code em JS
-descricao:  Veja algumas das boas práticas do Clean Code
+descricao: Veja algumas das boas práticas do Clean Code
 autor: Rodrigo Dias Noronha
 slug: clean-code-boas-praticas-js
 data: Sun Feb 16 2021 12:57:34 GMT-0300 (GMT-03:00)
 twitter: xxxkckkxkxxk
 autorEmail: rodrigodnoronha@gmail.com
-autorFoto: https://pbs.twimg.com/profile_images/1340832167778238465/twOdLLSa_400x400.jpg
+autorFoto: https://avatars.githubusercontent.com/u/63525765?v=4
 ---
 
 Navegando pelos profundos mares da internet, em uma busca incansável pelo que vier na telha, eis que encontro uma repositório um tanto quanto útil.
