@@ -1,6 +1,6 @@
 import React from 'react';
 import { NextPage, GetStaticPaths, GetStaticProps } from 'next'; // eslint-disable-line
-import { Header, Footer, PostContent, Error, Head } from '../../components';
+import { Header, Footer, PostContent, Head } from '../../components';
 import { Article } from '../../types'; // eslint-disable-line
 import styled from 'styled-components';
 import { format } from 'date-fns';

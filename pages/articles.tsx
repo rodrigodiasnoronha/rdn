@@ -17,7 +17,10 @@ const Container = styled.article`
     margin: 35px auto;
 
     h2 {
-        margin-bottom: 5px;
+        margin-bottom: 25px;
+        font-size: 44px;
+        font-weight: 500;
+        text-align: center;
     }
 
     .more {

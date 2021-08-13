@@ -212,7 +212,7 @@ const Tag = styled.span<{ backgroundColor: string }>`
 `;
 
 class Me extends Component {
-    renderCourses() {}
+    renderCourses() { }
 
     render() {
         return (
@@ -239,14 +239,14 @@ class Me extends Component {
                             </h3>
 
                             <p>
-                                Meu nome é Rodrigo Dias Noronha. Desenvolvedor Web e Mobile apaixonado por tecnologias!
+                                Meu nome é Rodrigo Dias Noronha. 21 anos. Desenvolvedor Web e Mobile apaixonado por tecnologias!
                             </p>
                             <p>
                                 Estudando e desenvolvendo com as mais recentes tecnologias do mercado, como{' '}
                                 <span className="react tech-effect">React</span>,{' '}
                                 <span className="react-native tech-effect">React Native</span> e{' '}
                                 <span className="node tech-effect">Node</span>. Sempre me arriscando um pouco no{' '}
-                                <span className="php tech-effect">PHP</span>!
+                                <span className="php tech-effect">PHP</span>! Atualmente focando em desenvolvimento Front End com <span className="react tech-effect">React</span> e <span className="node tech-effect">Android Studio</span>.
                             </p>
                         </div>
                     </section>
@@ -328,12 +328,12 @@ class Me extends Component {
 
 const courses = [
     {
-        name: 'Análise e Desenvolvimento de Sistemas (5º semestre trancado)',
+        name: 'Sistemas de Informação (6º semestre cursando)',
         from: 'Centro Universitário de Desenvolvimento do Centro Oeste - Unidesc',
         fromLink: 'https://www.unidesc.edu.br/',
     },
     {
-        name: 'Sistemas de Informação (6º semestre cursando)',
+        name: 'Análise e Desenvolvimento de Sistemas (5º semestre trancado)',
         from: 'Centro Universitário de Desenvolvimento do Centro Oeste - Unidesc',
         fromLink: 'https://www.unidesc.edu.br/',
     },
@@ -355,6 +355,15 @@ const courses = [
 ];
 
 const projects = [
+    {
+        name: 'uToros',
+        description: 'Aplicação web responsiva para anúncio e compra de veículos automotivos.',
+        link: 'http://app.utoros.com/',
+        tags: [
+            { name: 'Larevel', color: '#9fa8da' },
+            { name: 'Jquery', color: '#f57c00' },
+        ]
+    },
     {
         name: 'App Engajamento',
         description:
