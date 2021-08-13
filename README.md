@@ -41,7 +41,7 @@ Para instalar o projeto, siga estas etapas:
 <table>
   <tr>
     <td align="center">
-      <a href="#">
+      <a href="https://github.com/rodrigodiasnoronha">
         <img src="https://avatars.githubusercontent.com/u/63525765" width="100px;" alt="Rodrigo"/><br>
         <sub>
           <b>Rodrigo Dias Noronha</b>
