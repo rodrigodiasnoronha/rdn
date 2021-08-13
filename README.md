@@ -9,7 +9,32 @@
 ![Bitbucket open issues](https://img.shields.io/bitbucket/issues/rodrigodiasnoronha/rdn?style=for-the-badge)
 ![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/rodrigodiasnoronha/rdn?style=for-the-badge)
 
-<img src="exemplo-image.png" alt="exemplo imagem">
+<img 
+    src="https://raw.githubusercontent.com/rodrigodiasnoronha/rdn/master/screenshots/screenshot.PNG" alt="exemplo imagem"
+/>
+
+## 💻 Pré-requisitos
+
+Antes de começar, verifique se você atendeu aos seguintes requisitos:
+<!---Estes são apenas requisitos de exemplo. Adicionar, duplicar ou remover conforme necessário--->
+* Você instalou a versão mais recente de `Node`
+
+## 🚀 Instalando
+
+Para instalar o projeto, siga estas etapas:
+
+- Instale as dependências do projeto:
+
+```bash
+    $ npm i
+```
+- Execute o projeto:
+
+```bash
+    $ npm run dev
+```
+
+- O projeto deve ser executado na em `localhost:3000`
 
 ## 🌈 Contribuidores<br>
 
@@ -17,7 +42,7 @@
   <tr>
     <td align="center">
       <a href="#">
-        <img src="https://avatars.githubusercontent.com/u/63525765" width="100px;" alt="Foto do Iuri Silva no GitHub"/><br>
+        <img src="https://avatars.githubusercontent.com/u/63525765" width="100px;" alt="Rodrigo"/><br>
         <sub>
           <b>Rodrigo Dias Noronha</b>
         </sub>
@@ -26,16 +51,8 @@
   </tr>
 </table>
 
-## ⛩ Seja um dos contribuidores<br>
-
-Quer fazer parte desse projeto? Clique [AQUI](CONTRIBUTING.md) e leia como contribuir.<br>
-
-## ⚖ Licença
-
-Esse projeto está sob licença. Veja o arquivo [LICENÇA](LICENSE.md) para mais detalhes.<br>
-
 ## ℹ️ Informações do projeto
 
-![GitHub Repo stars](https://img.shields.io/github/stars/iuricode/README-template?style=for-the-badge)
-![GitHub watchers](https://img.shields.io/github/watchers/iuricode/README-template?style=for-the-badge)
-![GitHub forks](https://img.shields.io/github/forks/iuricode/README-template?style=for-the-badge)
+![GitHub Repo stars](https://img.shields.io/github/stars/rodrigodiasnoronha/rdn?style=for-the-badge)
+![GitHub watchers](https://img.shields.io/github/watchers/rodrigodiasnoronha/rdn?style=for-the-badge)
+![GitHub forks](https://img.shields.io/github/forks/rodrigodiasnoronha/rdn?style=for-the-badge)
