@@ -360,7 +360,7 @@ const projects = [
         description: 'Aplicação web responsiva para anúncio e compra de veículos automotivos.',
         link: 'http://app.utoros.com/',
         tags: [
-            { name: 'Larevel', color: '#9fa8da' },
+            { name: 'Laravel', color: '#9fa8da' },
             { name: 'Jquery', color: '#f57c00' },
         ]
     },
