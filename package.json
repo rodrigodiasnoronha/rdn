@@ -21,7 +21,7 @@
         "disqus-react": "^1.1.1",
         "dracula-prism": "^1.2.1",
         "gray-matter": "^4.0.3",
-        "next": "^9.4.1",
+        "next": "^11.1.3",
         "nextjs-progressbar": "0.0.7",
         "prismjs": "^1.24.1",
         "react": "^16.13.1",
