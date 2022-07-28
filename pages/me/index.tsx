@@ -3,6 +3,7 @@ import { Footer, Head, Header } from '../../components';
 import { FiNavigation } from 'react-icons/fi';
 import styled from 'styled-components';
 import colors from '../../types/colors';
+import { getUserRepositories } from '../../services/githubApi';
 
 const Container = styled.main`
     display: flex;
@@ -212,7 +213,76 @@ const Tag = styled.span<{ backgroundColor: string }>`
 `;
 
 class Me extends Component {
-    renderCourses() { }
+    state = {
+        repositories: [],
+    };
+
+    componentDidMount(): void {
+        getUserRepositories('rodrigodiasnoronha')
+            .then(({ data }) => {
+                this.setState({ repositories: data });
+            })
+            .catch(() => {});
+    }
+
+    pickTechColor(tech: string) {
+        switch (tech) {
+            case 'adonis':
+                return colors.const
+                
+            case 'javascript':
+                return colors.base2
+
+            case 'kotlin':
+                return colors.const
+
+            case 'mobile':
+                return colors.dim2
+
+            case 'react':
+                return colors.accent1
+
+            case 'react-native':
+                return colors.accent1
+
+            case 'discordjs':
+                return colors.const
+
+            case 'bot':
+                return colors.dim4
+
+            case 'nodejs':
+                return colors.call
+
+            case 'api':
+                return colors.base1
+
+            case 'mongodb':
+                return colors.call
+
+            case 'html':
+                return colors.accent2
+
+            case 'css':
+                return colors.accent1
+
+            case 'vuejs':
+                return colors.call
+
+            case 'python':
+                return colors.call
+
+            case 'fastapi':
+                return colors.pure1
+
+            case 'typescript':
+                return colors.base1
+
+            default:
+                return '#333'
+        }
+
+    }
 
     render() {
         return (
@@ -239,14 +309,17 @@ class Me extends Component {
                             </h3>
 
                             <p>
-                                Meu nome é Rodrigo Dias Noronha. 21 anos. Desenvolvedor Web e Mobile apaixonado por tecnologias!
+                                Meu nome é Rodrigo Dias Noronha. 21 anos. Desenvolvedor Web e Mobile apaixonado por
+                                tecnologias!
                             </p>
                             <p>
                                 Estudando e desenvolvendo com as mais recentes tecnologias do mercado, como{' '}
                                 <span className="react tech-effect">React</span>,{' '}
                                 <span className="react-native tech-effect">React Native</span> e{' '}
                                 <span className="node tech-effect">Node</span>. Sempre me arriscando um pouco no{' '}
-                                <span className="php tech-effect">PHP</span>! Atualmente focando em desenvolvimento Front End com <span className="react tech-effect">React</span> e <span className="node tech-effect">Android Studio</span>.
+                                <span className="php tech-effect">PHP</span>! Atualmente focando em desenvolvimento
+                                Front End com <span className="react tech-effect">React</span> e{' '}
+                                <span className="node tech-effect">Android Studio</span>.
                             </p>
                         </div>
                     </section>
@@ -287,35 +360,36 @@ class Me extends Component {
                         </p>
 
                         <div className="projetos">
-                            {projects.map((project) => (
-                                <Project key={Math.floor(Math.random() * 100000)}>
+                            {this.state.repositories.map((repo, index) => (
+                                <Project key={index}>
                                     <div>
                                         <div className="titulo-container">
-                                            <h5 className="titulo">{project.name}</h5>
-                                            <a href={project.link} target="__blank">
+                                            <h5 className="titulo">{repo.name}</h5>
+                                            <a href={repo.html_url} target="__blank">
                                                 <FiNavigation color="#333" size={30} />
                                             </a>
                                         </div>
 
-                                        {project.tags && (
+                                        {repo.topics && (
                                             <TagContainer>
-                                                {project.tags.map((tag) => (
+                                                {repo.topics.map((topic, index) => (
                                                     <Tag
-                                                        key={Math.floor(Math.random() * 10000)}
-                                                        backgroundColor={tag.color}
+                                                        key={index}
+                                                        backgroundColor={this.pickTechColor(topic)}
                                                     >
-                                                        {tag.name}
+                                                        {topic}
                                                     </Tag>
                                                 ))}
                                             </TagContainer>
                                         )}
 
-                                        <p className="descricao">{project.description}</p>
+                                        <p className="descricao">{repo.description || 'Sem descrição'}</p>
                                     </div>
 
                                     <div className="imagens"></div>
                                 </Project>
                             ))}
+                            
                         </div>
                     </section>
 
@@ -351,90 +425,6 @@ const courses = [
         name: 'Curso Git e Github',
         from: 'Udemy',
         fromLink: 'https://www.udemy.com/course/git-e-github',
-    },
-];
-
-const projects = [
-    {
-        name: 'uToros',
-        description: 'Aplicação web responsiva para anúncio e compra de veículos automotivos.',
-        link: 'http://app.utoros.com/',
-        tags: [
-            { name: 'Laravel', color: '#9fa8da' },
-            { name: 'Jquery', color: '#f57c00' },
-        ]
-    },
-    {
-        name: 'App Engajamento',
-        description:
-            'Aplicativo Mobile e Web criada para a igreja Sara Nossa Terra, que visa ajudar os superiores da igreja na administração de eventos e presença do seus fiéis em eventos e cultos. ',
-        link: 'https://github.com/sara-nossa-terra/engajamento',
-        tags: [
-            { name: 'PHP', color: '#9fa8da' },
-            { name: 'Jquery', color: '#f57c00' },
-            { name: 'Projeto Social', color: '#e53935' },
-            { name: 'React Native', color: '#536dfe' },
-        ],
-    },
-    {
-        name: 'Type Racing',
-        description:
-            'SPA intuitiva que possui, como objetivo, te mostrar quantas palavras você consegue digitar em 1 minuto. Similar aquele site 10fastfingers',
-        link: 'https://loli-type-racing.vercel.app/',
-        tags: [{ name: 'Vue', color: '#44cc0f' }],
-    },
-    {
-        name: 'Beatrice BOT',
-        description:
-            'Uma  BOT para Discord que visa ser completa. Com comandos de moderação, diversão e entretenimento',
-        link: 'https://github.com/rodrigodiasnoronha/beatrice',
-        tags: [
-            { name: 'Node', color: '#44cc0f' },
-            { name: 'Discord.js', color: '#1976d2' },
-        ],
-    },
-    {
-        name: 'Be The Hero',
-        description:
-            'Aplicação Web e Mobile voltada para resolver casos de ONGs independentes. Criada com Node, React e React Native no evento Omnistack, produzido pela Rocketseat',
-        link: 'https://github.com/rodrigodiasnoronha/be-the-hero/tree/master/screenshots',
-        tags: [
-            { name: 'React', color: '#039be5' },
-            { name: 'Node', color: '#44cc0f' },
-            { name: 'Rocketseat', color: '#b388ff' },
-        ],
-    },
-    {
-        name: 'Saints',
-        description:
-            'Blog pessoal meu (descontinuado) para produzir conteúdo sobre o time de futebol americano New Orleans Saints, no qual sou um grande fã! Criado com React e Firebase',
-        link: 'https://defensor-saints.web.app/',
-        tags: [
-            { name: 'React', color: '#039be5' },
-            { name: 'Firebase', color: '#009688' },
-        ],
-    },
-    {
-        name: 'Instaclone',
-        description: 'UI Clone do Instagram criada com React Native',
-        link: 'https://github.com/rodrigodiasnoronha/instaclone',
-        tags: [{ name: 'React Native', color: '#536dfe' }],
-    },
-    {
-        name: 'Tindesc',
-        description:
-            'Projeto que visa emular como funciona uma rede social. No caso, foi um projeto da faculdade que fiz um tipo de "Tinder da Faculdade", onde as pessoas da faculdade se cadastram e podem se conhecer! Construido com Express e React',
-        link: 'https://github.com/rodrigodiasnoronha/tindesc',
-        tags: [
-            { name: 'React', color: '#039be5' },
-            { name: 'Node', color: '#64dd17' },
-        ],
-    },
-    {
-        name: 'Calculadora',
-        description: 'Meu primeiro aplicativo. Uma calculadora criada com React Native',
-        link: 'https://github.com/rodrigodiasnoronha/rn-calculator',
-        tags: [{ name: 'React Native', color: '#536dfe' }],
     },
 ];
 
