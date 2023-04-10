@@ -32,7 +32,7 @@ interface PostContentProps {
 const ArticleContent: React.FC<PostContentProps> = ({ article }) => {
     const url = `https://rdn.now.sh/${article.data.slug}`;
 
-
+    console.log(article)
     useEffect(() => {
         if (typeof window !== 'undefined') {
             Prism.highlightAll();

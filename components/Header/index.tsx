@@ -17,7 +17,7 @@ const Header: React.FC<Props> = ({ backgroundImage, title, date }) => {
             <div className="opacity">
                 <div className="header">
                     <div className="title">
-                        <Link href="/">
+                        <Link href="/" legacyBehavior>
                             <h1>rdnblog</h1>
                         </Link>
                     </div>
@@ -26,7 +26,7 @@ const Header: React.FC<Props> = ({ backgroundImage, title, date }) => {
                         <ul>
                             <li>
                                 <Link href="/articles">
-                                    <a>Artigos</a>
+                                    Artigos
                                 </Link>
                             </li>
                             <li>
@@ -49,7 +49,7 @@ const Header: React.FC<Props> = ({ backgroundImage, title, date }) => {
                     <ul>
                         <li>
                             <Link href="/articles">
-                                <a>Artigos</a>
+                                Artigos
                             </Link>
                         </li>
                         <li>
