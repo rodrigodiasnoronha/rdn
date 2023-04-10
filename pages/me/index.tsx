@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { Footer, Head, Header } from '../../components';
 import { FiNavigation } from 'react-icons/fi';
 import styled from 'styled-components';
-import colors from '../../types/colors';
+import { Footer, Head, Header } from '../../components';
 import { getUserRepositories } from '../../services/githubApi';
+import colors from '../../types/colors';
 
 const Container = styled.main`
     display: flex;
@@ -320,8 +320,7 @@ class Me extends Component {
                                 mercado, como <span className="react tech-effect">React</span>,{' '}
                                 <span className="react-native tech-effect">React Native</span>,
                                 <span className="node tech-effect">Node</span> e{' '}
-                                <span className="python tech-effect">Python</span>. Atualmente estou empregado na{' '}
-                                <a href="http://www.codhab.df.gov.br/">Codhab DF</a> utilizando as ferramentas acima.
+                                <span className="python tech-effect">Python</span>.
                             </p>
                         </div>
                     </section>
@@ -330,8 +329,22 @@ class Me extends Component {
                         <h3>Experiência</h3>
 
                         <p>
-                            Sempre trabalhei e desenvolvi projetos como Desenvolvedor Freelancer. Também participando de
-                            projetos sociais e eventos de programação!
+                            Estou na área de TI há pouco mais de 4 anos. Integressei na área participando de projetos
+                            sociais, trabalhando em time e sempre buscando aprender até conseguir minha primeira
+                            oportunidade, que foi através de Freelancers. Iniciei oficialmente trabalhando como
+                            Freelancer para a <a href="https://3psystems.com/">3PSystems</a> como desenvolvedor
+                            frontend. Também já trabalhei para a <a href="http://www.4quality.com.br/">4Quality</a> como
+                            desenvolvedor mobile. Em ambas as empresas sempre busquei aprender e me aperfeiçoar e sou
+                            bastante agradecido pela oportunidade que me deram.
+                        </p>
+
+                        <p>
+                            Atualmente estou empregado na <a href="http://www.codhab.df.gov.br/">Codhab DF</a> desde
+                            2021 como desenvoledor fullstack, com foco em{' '}
+                            <span className="python tech-effect">Python</span>,{' '}
+                            <span className="node tech-effect">Node</span>,{' '}
+                            <span className="react tech-effect">React</span> e{' '}
+                            <span className="react-native tech-effect">React Native</span>.
                         </p>
                     </section>
 
