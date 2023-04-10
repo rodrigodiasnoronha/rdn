@@ -7,11 +7,7 @@ interface Props {
     articleTitle: string;
 }
 
-const DisqusCommentsComponent: React.FC<Props> = ({
-    articleId,
-    articleTitle,
-    articleUrl,
-}) => {
+const DisqusCommentsComponent: React.FC<Props> = ({ articleId, articleTitle, articleUrl }) => {
     const [loading, setLoading] = useState<boolean>(true);
 
     useEffect(() => {

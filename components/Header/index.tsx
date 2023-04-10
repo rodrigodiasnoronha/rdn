@@ -25,9 +25,7 @@ const Header: React.FC<Props> = ({ backgroundImage, title, date }) => {
                     <nav className="navbar">
                         <ul>
                             <li>
-                                <Link href="/articles">
-                                    Artigos
-                                </Link>
+                                <Link href="/articles">Artigos</Link>
                             </li>
                             <li>
                                 <Link href="/me">Sobre</Link>
@@ -48,9 +46,7 @@ const Header: React.FC<Props> = ({ backgroundImage, title, date }) => {
                 <div className="mobile">
                     <ul>
                         <li>
-                            <Link href="/articles">
-                                Artigos
-                            </Link>
+                            <Link href="/articles">Artigos</Link>
                         </li>
                         <li>
                             <Link href="/me">Sobre mim</Link>

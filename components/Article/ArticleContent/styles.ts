@@ -103,7 +103,6 @@ export const Container = styled.article`
         flex-wrap: wrap;
     }
 
-
     .body {
         max-width: 700px;
         width: 100%;
@@ -207,7 +206,6 @@ export const Container = styled.article`
         font-family: JetBrains Mono, sans-serif;
         font-size: 1rem;
     }
-
 
     @media (max-width: 490px) {
         .body p {

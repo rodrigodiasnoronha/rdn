@@ -17,9 +17,7 @@ const Article: React.FC<ArticleProps> = ({ data }) => {
     return (
         <Container>
             <div className="title">
-                <Link href={`/articles/${data.data.slug}`}>
-                    {data.data.titulo}
-                </Link>
+                <Link href={`/articles/${data.data.slug}`}>{data.data.titulo}</Link>
             </div>
 
             <div className="date">

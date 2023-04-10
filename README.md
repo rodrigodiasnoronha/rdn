@@ -1,4 +1,3 @@
-
 # Nome do projeto
 
 <!---Esses são exemplos. Veja https://shields.io para outras pessoas ou para personalizar este conjunto de escudos. Você pode querer incluir dependências, status do projeto e informações de licença aqui--->
@@ -16,25 +15,28 @@
 ## 💻 Pré-requisitos
 
 Antes de começar, verifique se você atendeu aos seguintes requisitos:
+
 <!---Estes são apenas requisitos de exemplo. Adicionar, duplicar ou remover conforme necessário--->
-* Você instalou a versão mais recente de `Node`
+
+-   Você instalou a versão mais recente de `Node`
 
 ## 🚀 Instalando
 
 Para instalar o projeto, siga estas etapas:
 
-- Instale as dependências do projeto:
+-   Instale as dependências do projeto:
 
 ```bash
     $ npm i
 ```
-- Execute o projeto:
+
+-   Execute o projeto:
 
 ```bash
     $ npm run dev
 ```
 
-- O projeto deve ser executado na em `localhost:3000`
+-   O projeto deve ser executado na em `localhost:3000`
 
 ## 🌈 Contribuidores<br>
 

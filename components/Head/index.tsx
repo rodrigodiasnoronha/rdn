@@ -1,8 +1,8 @@
 import React from 'react';
-import Head from 'next/head';
+import { Helmet } from 'react-helmet';
 
 const HeadComponent: React.FC = ({ children }) => (
-    <Head>
+    <Helmet>
         {/* Chrome bar theme */}
         <meta name="theme-color" content="#222" />
 
@@ -62,7 +62,7 @@ const HeadComponent: React.FC = ({ children }) => (
         <meta name={`twitter:image`} content="http://vmorneau.me/content/images/2016/07/java-script.jpg" />
 
         {children}
-    </Head>
+    </Helmet>
 );
 
 export default HeadComponent;

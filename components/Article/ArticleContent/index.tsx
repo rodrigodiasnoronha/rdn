@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { FiTwitter, FiMail } from 'react-icons/fi';
-import { Article,  } from '../../../types';
+import { Article } from '../../../types';
 import { Container } from './styles';
 import DisqusComments from '../../DisqusComments';
 import { format } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
-import Prism from 'prismjs'
+import Prism from 'prismjs';
 import {
     FacebookIcon,
     FacebookShareButton,
@@ -32,16 +32,16 @@ interface PostContentProps {
 const ArticleContent: React.FC<PostContentProps> = ({ article }) => {
     const url = `https://rdn.now.sh/${article.data.slug}`;
 
-    console.log(article)
     useEffect(() => {
         if (typeof window !== 'undefined') {
             Prism.highlightAll();
-        }    
-    }, [])
+        }
+    }, [article]);
 
     function formatDate(date: Date) {
         return format(new Date(date), "d 'de' MMMM 'de' Y", { locale: ptBR });
     }
+    console.log(article)
 
     return (
         <Container>
@@ -73,8 +73,8 @@ const ArticleContent: React.FC<PostContentProps> = ({ article }) => {
                 </div>
             </div>
 
-            <div className="body" dangerouslySetInnerHTML={{ __html: article.content }} /> 
-            
+            <div className="body" dangerouslySetInnerHTML={{ __html: article.content }} />
+
             <div className="share-container">
                 <div className="share">
                     <FacebookShareButton url={url} quote={article.data.titulo}>

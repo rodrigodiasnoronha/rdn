@@ -81,6 +81,10 @@ const Container = styled.main`
         cursor: pointer;
     }
 
+    .python {
+        color: #ffd343;
+    }
+
     .orange {
         color: ${colors.accent2};
     }
@@ -228,60 +232,59 @@ class Me extends Component {
     pickTechColor(tech: string) {
         switch (tech) {
             case 'adonis':
-                return colors.const
-                
+                return colors.const;
+
             case 'javascript':
-                return colors.base2
+                return colors.base2;
 
             case 'kotlin':
-                return colors.const
+                return colors.const;
 
             case 'mobile':
-                return colors.dim2
+                return colors.dim2;
 
             case 'react':
-                return colors.accent1
+                return colors.accent1;
 
             case 'react-native':
-                return colors.accent1
+                return colors.accent1;
 
             case 'discordjs':
-                return colors.const
+                return colors.const;
 
             case 'bot':
-                return colors.dim4
+                return colors.dim4;
 
             case 'nodejs':
-                return colors.call
+                return colors.call;
 
             case 'api':
-                return colors.base1
+                return colors.base1;
 
             case 'mongodb':
-                return colors.call
+                return colors.call;
 
             case 'html':
-                return colors.accent2
+                return colors.accent2;
 
             case 'css':
-                return colors.accent1
+                return colors.accent1;
 
             case 'vuejs':
-                return colors.call
+                return colors.call;
 
             case 'python':
-                return colors.call
+                return colors.call;
 
             case 'fastapi':
-                return colors.pure1
+                return colors.pure1;
 
             case 'typescript':
-                return colors.base1
+                return colors.base1;
 
             default:
-                return '#333'
+                return '#333';
         }
-
     }
 
     render() {
@@ -309,17 +312,16 @@ class Me extends Component {
                             </h3>
 
                             <p>
-                                Meu nome é Rodrigo Dias Noronha. 21 anos. Desenvolvedor Web e Mobile apaixonado por
+                                Meu nome é Rodrigo Dias Noronha. 23 anos. Desenvolvedor Web e Mobile apaixonado por
                                 tecnologias!
                             </p>
                             <p>
-                                Estudando e desenvolvendo com as mais recentes tecnologias do mercado, como{' '}
-                                <span className="react tech-effect">React</span>,{' '}
-                                <span className="react-native tech-effect">React Native</span> e{' '}
-                                <span className="node tech-effect">Node</span>. Sempre me arriscando um pouco no{' '}
-                                <span className="php tech-effect">PHP</span>! Atualmente focando em desenvolvimento
-                                Front End com <span className="react tech-effect">React</span> e{' '}
-                                <span className="node tech-effect">Android Studio</span>.
+                                Trabalho com soluções em desenvolvimento de software as mais recentes tecnologias do
+                                mercado, como <span className="react tech-effect">React</span>,{' '}
+                                <span className="react-native tech-effect">React Native</span>,
+                                <span className="node tech-effect">Node</span> e{' '}
+                                <span className="python tech-effect">Python</span>. Atualmente estou empregado na{' '}
+                                <a href="http://www.codhab.df.gov.br/">Codhab DF</a> utilizando as ferramentas acima.
                             </p>
                         </div>
                     </section>
@@ -373,10 +375,7 @@ class Me extends Component {
                                         {repo.topics && (
                                             <TagContainer>
                                                 {repo.topics.map((topic, index) => (
-                                                    <Tag
-                                                        key={index}
-                                                        backgroundColor={this.pickTechColor(topic)}
-                                                    >
+                                                    <Tag key={index} backgroundColor={this.pickTechColor(topic)}>
                                                         {topic}
                                                     </Tag>
                                                 ))}
@@ -389,7 +388,6 @@ class Me extends Component {
                                     <div className="imagens"></div>
                                 </Project>
                             ))}
-                            
                         </div>
                     </section>
 
@@ -402,7 +400,7 @@ class Me extends Component {
 
 const courses = [
     {
-        name: 'Sistemas de Informação (6º semestre cursando)',
+        name: 'Sistemas de Informação (8º semestre trancado)',
         from: 'Centro Universitário de Desenvolvimento do Centro Oeste - Unidesc',
         fromLink: 'https://www.unidesc.edu.br/',
     },
