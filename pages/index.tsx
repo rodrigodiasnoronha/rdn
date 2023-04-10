@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
 import { GetStaticProps } from 'next'; // eslint-disable-line
-import { withRouter, NextRouter } from 'next/router';
-import { Header, Article, Footer, Head } from '../components';
+import { NextRouter, withRouter } from 'next/router';
+import React, { Component } from 'react';
 import styled from 'styled-components';
-import { Article as IArticle } from '../types'; // eslint-disable-line
-import { formatArticles, getAllArticles } from '../lib/articles';
+import { Footer, Head, Header } from '../components';
 import RecentArticles from '../components/RecentArticles';
+import { formatArticles, getAllArticles } from '../lib/articles';
+import { Article as IArticle } from '../types'; // eslint-disable-line
 
 const Container = styled.main`
     height: 100%;

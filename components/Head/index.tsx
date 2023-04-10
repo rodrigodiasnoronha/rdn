@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { Helmet } from 'react-helmet';
 
-const HeadComponent: React.FC = ({ children }) => (
+const HeadComponent: React.FC<{ children: ReactNode }>  = ({ children }) => (
     <Helmet>
         {/* Chrome bar theme */}
         <meta name="theme-color" content="#222" />

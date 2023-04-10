@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, ReactNode } from 'react';
 import styled from 'styled-components';
 
 const Container = styled.main`
@@ -18,9 +18,10 @@ const Container = styled.main`
 
 interface ErrorBoundaryState {
     error: boolean;
+    
 }
 
-class ErrorBoundary extends Component<{}, ErrorBoundaryState> {
+class ErrorBoundary extends Component<{ children: ReactNode }, ErrorBoundaryState> {
     constructor(props) {
         super(props);
 
