@@ -14,6 +14,7 @@ import React from 'react';
 import ErrorBoundary from '../components/ErrorBoundary';
 import GlobalStyles from '../components/GlobalStyles';
 import '../styles/prism-dracula.css';
+import '../styles/globals.css'
 
 const Global: React.FC<AppProps> = (props) => {
     const { Component, pageProps } = props;
