@@ -25,10 +25,14 @@ const Header: React.FC<Props> = ({ backgroundImage, title, date }) => {
                     <nav className="navbar">
                         <ul>
                             <li>
-                                <Link href="/articles">Artigos</Link>
+                                <Link href="/articles" className="text-white">
+                                    Artigos
+                                </Link>
                             </li>
                             <li>
-                                <Link href="/me">Sobre</Link>
+                                <Link href="/me" className="text-white">
+                                    Sobre
+                                </Link>
                             </li>
                         </ul>
                     </nav>

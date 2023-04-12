@@ -47,18 +47,6 @@ export default createGlobalStyle`
     }
 
 
-    a, a:visited {
-        color: var(--lucyBlue);
-        cursor: pointer;   
-        text-decoration: none; 
-    }
-
-    a:hover, a:active{
-        color: #388b98;
-        transition: color 0.5s;
-
-    }
-
     input, button {
         font-family: Roboto Arial, Helvetica, sans-serif;
         font-weight: 400;

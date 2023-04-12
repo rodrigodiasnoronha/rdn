@@ -1,9 +1,8 @@
-import React from 'react';
-import Link from 'next/link';
-import { Article as IArticle } from '../../types';
 import { format } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
-import { Container } from './styles';
+import Link from 'next/link';
+import React from 'react';
+import { Article as IArticle } from '../../types';
 
 interface ArticleProps {
     data: IArticle;
@@ -15,15 +14,15 @@ const Article: React.FC<ArticleProps> = ({ data }) => {
     }
 
     return (
-        <Container>
-            <div className="title">
-                <Link href={`/articles/${data.data.slug}`}>{data.data.titulo}</Link>
-            </div>
+        <div className='flex flex-row justify-between items-center py-3 border-b'>
+            <Link className="text-lg text-gray-800 hover:text-call" href={`/articles/${data.data.slug}`}>
+                {data.data.titulo}
+            </Link>
 
-            <div className="date">
+            <div className="text-sm">
                 <time>{formatDate(data.data.data)}</time>
             </div>
-        </Container>
+        </div>
     );
 };
 

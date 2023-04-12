@@ -8,7 +8,7 @@ const Footer: React.FC = () => {
                 <span>RDN Blog &#169; 2020</span>
             </div>
 
-            <div className="flex flex-row gap-4 p-4">
+            <div className="flex flex-row gap-4">
                 <a href="https://twitter.com/xxxkckkxkxxk" target="__blank">
                     <FiTwitter size={25} />
                 </a>

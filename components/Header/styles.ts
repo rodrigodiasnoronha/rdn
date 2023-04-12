@@ -50,7 +50,7 @@ export const Container = styled.header<{ image: string }>`
             'Open Sans', 'Helvetica Neue', sans-serif;
         font-weight: 500;
         font-size: 18px;
-        text-transform: uppercase;
+        text-transform: lowercase;
         text-decoration: none;
     }
 

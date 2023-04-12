@@ -13,10 +13,10 @@ class RecentArticles extends Component<RecentArticlesProps, {}> {
         let articeListOrdered = this.articleList.sort((a, b) => (a.data.data <= b.data.data ? 1 : -1));
 
         return (
-            <section className="articles-section">
-                <h3>Recentes</h3>
+            <section className="flex flex-col items-center p-4">
+                <h3 className="text-4xl font-medium my-4 font-roboto">Recentes</h3>
 
-                <div className="articles">
+                <div>
                     {articeListOrdered &&
                         articeListOrdered.map((article) => <Article key={article.data.slug} data={article} />)}
                 </div>
