@@ -291,7 +291,7 @@ class Me extends Component {
         return (
             <React.Fragment>
                 <Head>
-                    <title key="title">Sobre mim | RDN Blog</title>
+                    <title key="title">Sobre mim | Rodrigo Dias Noronha</title>
                 </Head>
 
                 <Header title="Ei! Prazer! Deslize para baixo para saber mais sobre mim!" />
