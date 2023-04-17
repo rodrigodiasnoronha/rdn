@@ -93,7 +93,7 @@ export const Container = styled.article`
 
     .share-container h4 {
         text-align: center;
-        marbin-bottom: 10px;
+        margin-bottom: 10px;
     }
 
     .share {
