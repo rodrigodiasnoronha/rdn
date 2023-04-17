@@ -48,7 +48,7 @@ class Dashboard extends Component<DashboardProps, DashboardState> {
         return (
             <React.Fragment>
                 <Head>
-                    <title key="title">Home | RDN Blog</title>
+                    <title key="title">Home | Rodrigo Dias Noronha</title>
                 </Head>
 
                 <Header title="Pense, construa e compartilhe" />

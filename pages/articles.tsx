@@ -45,7 +45,7 @@ const ArticlesComponent: NextPage<ArticlesComponentProps> = (props) => {
     return (
         <React.Fragment>
             <Head>
-                <title key="title">Artigos | RDN Blog</title>
+                <title key="title">Artigos | Rodrigo Dias Noronha</title>
             </Head>
 
             <Header title="Compartilhe conhecimento" />

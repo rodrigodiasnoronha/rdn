@@ -27,7 +27,7 @@ const PostComponent: NextPage<Props> = (props) => {
     return (
         <React.Fragment>
             <Head>
-                <title key="title">{article.data.titulo} | RND Blog</title>
+                <title key="title">{article.data.titulo} | Rodrigo Dias Noronha</title>
 
                 <meta property="og:type" content="article" />
                 <meta key="og:title" property="og:title" content={article.data.titulo} />
