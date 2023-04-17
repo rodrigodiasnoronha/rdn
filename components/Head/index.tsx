@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import { Helmet } from 'react-helmet';
 
-const HeadComponent: React.FC<{ children: ReactNode }>  = ({ children }) => (
+const HeadComponent: React.FC<{ children?: ReactNode }>  = ({ children }) => (
     <Helmet>
         {/* Chrome bar theme */}
         <meta name="theme-color" content="#222" />
@@ -29,7 +29,7 @@ const HeadComponent: React.FC<{ children: ReactNode }>  = ({ children }) => (
             rel="stylesheet"
         ></link>
 
-        <title key="title">RDN Blog</title>
+        <title key="title">RDN Blog - Rodrigo Dias Noronha</title>
 
         {/*  Reference to the manifest file in the public path */}
         <link rel="manifest" href="/manifest.json" />
@@ -37,7 +37,7 @@ const HeadComponent: React.FC<{ children: ReactNode }>  = ({ children }) => (
         {/*  Reference to the manifest file in the public path */}
         <link rel="manifest" href="/manifest.json" />
         {/* Og TAGS */}
-        <meta key="og:title" property="og:title" content="RDN Blog - Dicas de Desenvolvimento de Software" />
+        <meta key="og:title" property="og:title" content="RDN - Portfólio e Blog" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://rdn.now.sh" />
         <meta key="og:image" property="og:image" content="http://vmorneau.me/content/images/2016/07/java-script.jpg" />
@@ -50,14 +50,14 @@ const HeadComponent: React.FC<{ children: ReactNode }>  = ({ children }) => (
         <meta property="og:determiner" content="https://rdn.now.sh" />
         <meta property="og:locale" content="pt_BR" />
         <meta property="og:locale:alternate" content="es_ES" />
-        <meta key="og:site_name" property="og:site_name" content="RDN Blog - Dicas sobre Desenvolvimento de Software" />
+        <meta key="og:site_name" property="og:site_name" content="RDN - Dicas sobre Desenvolvimento de Software" />
         <meta property="og:type" content="website" />
 
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content="@xxxkckkxkxxk" />
         <meta
             name={`twitter:title`}
-            content="RDN Blog - Dicas sobre Desenvolvimento de Software, criado por Rodrigo Dias Noronha"
+            content="RDN - Dicas sobre Desenvolvimento de Software, criado por Rodrigo Dias Noronha"
         />
         <meta name={`twitter:image`} content="http://vmorneau.me/content/images/2016/07/java-script.jpg" />
 
