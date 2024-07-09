@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { FiNavigation } from 'react-icons/fi';
 import styled from 'styled-components';
 import { Footer, Head, Header } from '../../components';
 import { getUserRepositories } from '../../services/githubApi';
@@ -16,9 +15,14 @@ const Container = styled.main`
 
     section h3 {
         font-size: 38px;
-        margin: 25px 0px 15px;
+        margin: 25px 0px 15px ;
         font-weight: 500;
         color: #333;
+    }
+    
+    section h4 {
+        font-size: 32px;
+        font-weight: 400;
     }
 
     section > p {
@@ -42,9 +46,10 @@ const Container = styled.main`
     }
 
     .sobre-mim .foto img {
+        max-width: 175px;
         width: 100%;
         border: 3px solid #8c9eff;
-        border-radius: 50%;
+        border-radius: 10px;
     }
 
     .sobre-mim .descricao {
@@ -79,6 +84,10 @@ const Container = styled.main`
     .php {
         color: #8993be;
         cursor: pointer;
+    }
+
+    .kotlin {
+        color: #1bade3;
     }
 
     .python {
@@ -218,7 +227,7 @@ const Tag = styled.span<{ backgroundColor: string }>`
 
 class Me extends Component {
     state = {
-        repositories: [],
+        repositories: []
     };
 
     componentDidMount(): void {
@@ -226,7 +235,8 @@ class Me extends Component {
             .then(({ data }) => {
                 this.setState({ repositories: data });
             })
-            .catch(() => {});
+            .catch(() => {
+            });
     }
 
     pickTechColor(tech: string) {
@@ -288,155 +298,134 @@ class Me extends Component {
     }
 
     render() {
-        return (
-            <React.Fragment>
-                <Head>
-                    <title key="title">Sobre mim | Rodrigo Dias Noronha</title>
-                </Head>
+        return (<React.Fragment>
+            <Head>
+                <title key="title">Sobre mim | Rodrigo Dias Noronha</title>
+            </Head>
 
-                <Header title="Ei! Prazer! Deslize para baixo para saber mais sobre mim!" />
+            <Header title="Ei! Prazer! Deslize para baixo para saber mais sobre mim!" />
 
-                <Container>
-                    <section className="sobre-mim">
-                        <div className="foto">
-                            <img
-                                src="https://avatars.githubusercontent.com/u/63525765?v=4"
-                                alt="Foto - Portfólio"
-                                title="Foto - Portfólio"
-                                id="foto-perfil"
-                            />
-                        </div>
-                        <div className="descricao">
-                            <h3>
-                                Olá! <span className="orange">Hi There!</span>
-                            </h3>
-
-                            <p>
-                                Meu nome é Rodrigo Dias Noronha. 23 anos. Desenvolvedor Web e Mobile apaixonado por
-                                tecnologias!
-                            </p>
-                            <p>
-                                Trabalho com soluções em desenvolvimento de software as mais recentes tecnologias do
-                                mercado, como <span className="react tech-effect">React</span>,{' '}
-                                <span className="react-native tech-effect">React Native</span>,
-                                <span className="node tech-effect">Node</span> e{' '}
-                                <span className="python tech-effect">Python</span>.
-                            </p>
-                        </div>
-                    </section>
-
-                    <section className="experiencia">
-                        <h3>Experiência</h3>
+            <Container>
+                <section className="sobre-mim">
+                    <div className="foto">
+                        <img
+                            src="/images/foto-perfil.jpeg"
+                            alt="Foto - Portfólio"
+                            title="Foto - Portfólio"
+                            id="foto-perfil"
+                        />
+                    </div>
+                    <div className="descricao">
+                        <h3>
+                            Olá! <span className="orange">Hi There!</span>
+                        </h3>
 
                         <p>
-                            Estou na área de TI há pouco mais de 4 anos. Integressei na área participando de projetos
-                            sociais, trabalhando em time e sempre buscando aprender até conseguir minha primeira
-                            oportunidade, que foi através de Freelancers. Iniciei oficialmente trabalhando como
-                            Freelancer para a <a href="https://3psystems.com/">3PSystems</a> como desenvolvedor
-                            frontend. Também já trabalhei para a <a href="http://www.4quality.com.br/">4Quality</a> como
-                            desenvolvedor mobile. Em ambas as empresas sempre busquei aprender e me aperfeiçoar e sou
-                            bastante agradecido pela oportunidade que me deram.
+                            Meu nome é Rodrigo Dias Noronha. 24 anos. Desenvolvedor Web e Mobile apaixonado por
+                            tecnologias!
                         </p>
-
                         <p>
-                            Atualmente estou empregado na <a href="http://www.codhab.df.gov.br/">Codhab DF</a> desde
-                            2021 como desenvoledor fullstack, com foco em{' '}
-                            <span className="python tech-effect">Python</span>,{' '}
-                            <span className="node tech-effect">Node</span>,{' '}
-                            <span className="react tech-effect">React</span> e{' '}
-                            <span className="react-native tech-effect">React Native</span>.
+                            Trabalho com soluções em desenvolvimento de software com as mais recentes tecnologias do
+                            mercado, como <span className="react tech-effect">React</span>,{' '}
+                            <span className="react-native tech-effect">React Native</span>,
+                            <span className="node tech-effect">Node</span> e{' '}
+                            <span className="python tech-effect">Python</span>. Estudando, atualmente,
+                            desenvolvimento mobile com <span className="kotlin">Kotlin</span>.
                         </p>
-                    </section>
+                    </div>
+                </section>
 
-                    <section className="educacao-e-cursos">
-                        <h3>Educação e cursos</h3>
+                <section className="experiencia">
+                    <h3>Impacto em projetos</h3>
 
-                        {courses.map((course) => (
-                            <Course key={Math.floor(Math.random() * 1000000)}>
-                                <div>
-                                    <h5>{course.name}</h5>
-                                    <span>
+                    <p>
+                        - Reformulação no aplicativo mobile da <a href="https://www.codhab.df.gov.br/">Codhab</a>,
+                        visando melhorar o atendimento de todos os partipantes de seus programas no DF.
+                    </p>
+
+                    <p>
+                        - Desenvolvimento da plataforma Intranet, para atendimento em todo DF da <a
+                        href="https://www.codhab.df.gov.br/">Codhab</a>
+                    </p>
+
+                    <p>
+                        - Desenvolvimento de aplicações Intranet para a <a href="https://www.novacap.df.gov.br/">Novacap
+                        DF</a>.
+                    </p>
+
+                    <p>
+                        - Desenvolvimento de <a href="https://extranet.codhab.df.gov.br/">Extranet</a> para <a
+                        href="https://www.codhab.df.gov.br/">Codhab DF</a>, visando atender as Entidades
+                        cadastradas
+                        em seus programas.
+                    </p>
+                </section>
+
+
+                <section className="experiencia">
+                    <h3>Experiência</h3>
+
+                    <p className="font-weight-bold">
+                        Trabalhando há pouco mais de 6 anos na área, tive passagens por:
+                    </p>
+
+                    <p>
+                        - 3PSystem - Desenvolvedor Frontend - 2018-2021 - Remoto
+                    </p>
+
+                    <p>
+                        - 4Quality - Desenvolvedor Mobile - 2021 - Remoto
+                    </p>
+
+                    <p>
+                        - <a href="https://tellus.tec.br/">Tellus</a> - Desenvolvedor Fullstack - 2021-2023 -
+                        Presencial
+                    </p>
+
+                    <p>
+                        - <a href="https://v2solucoes.com.br/">V2 Soluções</a> - Desenvolvedor Fullstack - 2023-Até o
+                        momento - Híbrido
+                    </p>
+                </section>
+
+                <section className="educacao-e-cursos">
+                    <h3>Educação e cursos</h3>
+
+                    {courses.map((course) => (<Course key={Math.floor(Math.random() * 1000000)}>
+                        <div>
+                            <h5>{course.name}</h5>
+                            <span>
                                         De:{' '}
-                                        <a href={course.fromLink} target="_blank" rel="noreferrer">
+                                <a href={course.fromLink} target="_blank" rel="noreferrer">
                                             {course.from}
                                         </a>
                                     </span>
-                                </div>
-                            </Course>
-                        ))}
-                    </section>
-
-                    <section className="projetos-pessoais">
-                        <h3>Projetos Pessoais</h3>
-
-                        <p>
-                            Aqui estão alguns de meus projetos pessoais sobre, apenas clique no link para ser
-                            redirecionado direto para o código fonte!
-                        </p>
-
-                        <div className="projetos">
-                            {this.state.repositories.map((repo, index) => (
-                                <Project key={index}>
-                                    <div>
-                                        <div className="titulo-container">
-                                            <h5 className="titulo">{repo.name}</h5>
-                                            <a href={repo.html_url} target="__blank">
-                                                <FiNavigation color="#333" size={30} />
-                                            </a>
-                                        </div>
-
-                                        {repo.topics && (
-                                            <TagContainer>
-                                                {repo.topics.map((topic, index) => (
-                                                    <Tag key={index} backgroundColor={this.pickTechColor(topic)}>
-                                                        {topic}
-                                                    </Tag>
-                                                ))}
-                                            </TagContainer>
-                                        )}
-
-                                        <p className="descricao">{repo.description || 'Sem descrição'}</p>
-                                    </div>
-
-                                    <div className="imagens"></div>
-                                </Project>
-                            ))}
                         </div>
-                    </section>
+                    </Course>))}
+                </section>
 
-                    <Footer />
-                </Container>
-            </React.Fragment>
-        );
+                <Footer />
+            </Container>
+        </React.Fragment>);
     }
 }
 
-const courses = [
-    {
-        name: 'Sistemas de Informação (8º semestre trancado)',
-        from: 'Centro Universitário de Desenvolvimento do Centro Oeste - Unidesc',
-        fromLink: 'https://www.unidesc.edu.br/',
-    },
-    {
-        name: 'Análise e Desenvolvimento de Sistemas (5º semestre trancado)',
-        from: 'Centro Universitário de Desenvolvimento do Centro Oeste - Unidesc',
-        fromLink: 'https://www.unidesc.edu.br/',
-    },
-    {
-        name: 'Curso Javascript web moderno',
-        from: 'Udemy',
-        fromLink: 'https://www.udemy.com/course/curso-web/',
-    },
-    {
-        name: 'Curso Firebase Web',
-        from: 'Udemy',
-        fromLink: 'https://www.udemy.com/course/firebase-para-web-e-apps-hibridos/',
-    },
-    {
-        name: 'Curso Git e Github',
-        from: 'Udemy',
-        fromLink: 'https://www.udemy.com/course/git-e-github',
-    },
-];
+const courses = [{
+    name: 'Sistemas de Informação (8º semestre trancado)',
+    from: 'Centro Universitário de Desenvolvimento do Centro Oeste - Unidesc',
+    fromLink: 'https://www.unidesc.edu.br/'
+}, {
+    name: 'Análise e Desenvolvimento de Sistemas (5º semestre trancado)',
+    from: 'Centro Universitário de Desenvolvimento do Centro Oeste - Unidesc',
+    fromLink: 'https://www.unidesc.edu.br/'
+}, {
+    name: 'Curso Javascript web moderno', from: 'Udemy', fromLink: 'https://www.udemy.com/course/curso-web/'
+}, {
+    name: 'Curso Firebase Web',
+    from: 'Udemy',
+    fromLink: 'https://www.udemy.com/course/firebase-para-web-e-apps-hibridos/'
+}, {
+    name: 'Curso Git e Github', from: 'Udemy', fromLink: 'https://www.udemy.com/course/git-e-github'
+}];
 
 export default Me;

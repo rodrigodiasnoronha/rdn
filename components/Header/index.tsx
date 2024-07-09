@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { Container } from './styles';
-import { FiTwitter, FiMail } from 'react-icons/fi';
+import { FiMail, FiTwitter } from 'react-icons/fi';
 
 interface Props {
     backgroundImage?: string;
@@ -12,8 +12,7 @@ interface Props {
 const Header: React.FC<Props> = ({ backgroundImage, title, date }) => {
     const image = wallpapers[Math.floor(Math.random() * wallpapers.length)];
 
-    return (
-        <Container image={backgroundImage || `/header/${image}`}>
+    return (<Container image={backgroundImage || `/header/${image}`}>
             <div className="opacity">
                 <div className="header">
                     <div className="title">
@@ -47,6 +46,7 @@ const Header: React.FC<Props> = ({ backgroundImage, title, date }) => {
                         </a>
                     </div>
                 </div>
+
                 <div className="mobile">
                     <ul>
                         <li>
@@ -57,26 +57,22 @@ const Header: React.FC<Props> = ({ backgroundImage, title, date }) => {
                         </li>
                     </ul>
                 </div>
+
                 <div className="phrase-container">
                     <h3>{title || 'Do what you must need do!'}</h3>
                     {date && <time className="date">{date}</time>}
                 </div>
             </div>
-        </Container>
-    );
+        </Container>);
 };
 
 const wallpapers = [
-    'wp.jpg',
-    'wp2.jpg',
-    'wp3.jpg',
-    'wp4.jpg',
-    'wp5.jpg',
-    'wp6.jpg',
-    'wp7.jpg',
-    'wp8.jpg',
-    'wp9.jpg',
-    'wp10.jpg',
+    'header-1.jpg',
+    'header-2.jpg',
+    'header-3.jpg',
+    'header-4.jpg',
+    'header-5.jpg',
+    'header-6.jpg',
 ];
 
 export default Header;
