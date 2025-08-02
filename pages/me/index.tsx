@@ -309,7 +309,7 @@ class Me extends Component {
                 <section className="sobre-mim">
                     <div className="foto">
                         <img
-                            src="/images/foto-perfil.jpeg"
+                            src="/images/foto-perfil.png"
                             alt="Foto - Portfólio"
                             title="Foto - Portfólio"
                             id="foto-perfil"
@@ -321,7 +321,7 @@ class Me extends Component {
                         </h3>
 
                         <p>
-                            Meu nome é Rodrigo Dias Noronha. 24 anos. Desenvolvedor Web e Mobile apaixonado por
+                            Meu nome é Rodrigo Dias Noronha. 25 anos. Desenvolvedor Web e Mobile apaixonado por
                             tecnologias!
                         </p>
                         <p>
