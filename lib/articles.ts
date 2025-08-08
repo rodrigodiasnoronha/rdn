@@ -26,6 +26,13 @@ export const formatArticles = (articleFileList: string | string[]) => {
             arrayFile.push(a);
         }
 
+        // Ordenar artigos por data (mais recente primeiro)
+        arrayFile.sort((a, b) => {
+            const dateA = new Date(a.data.data);
+            const dateB = new Date(b.data.data);
+            return dateB.getTime() - dateA.getTime();
+        });
+
         return arrayFile;
     } else {
         const a = getArticleByAlias(articleFileList);
