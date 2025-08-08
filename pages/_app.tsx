@@ -9,6 +9,8 @@ import 'prismjs/components/prism-jsx.min.js';
 import 'prismjs/components/prism-tsx.min.js';
 import 'prismjs/components/prism-typescript.min.js';
 import 'prismjs/components/prism-yaml.min.js';
+import 'prismjs/components/prism-python.min.js';
+import 'prismjs/components/prism-sql.min.js';
 import 'prismjs/themes/prism-tomorrow.css';
 import React from 'react';
 import ErrorBoundary from '../components/ErrorBoundary';

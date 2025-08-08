@@ -10,7 +10,11 @@ class RecentArticles extends Component<RecentArticlesProps, {}> {
     private articleList = JSON.parse(this.props.articleList) as ArticleInterface[];
 
     render() {
-        let articeListOrdered = this.articleList.sort((a, b) => (a.data.data <= b.data.data ? 1 : -1));
+        let articeListOrdered = this.articleList.sort((a, b) => {
+            const dateA = new Date(a.data.data);
+            const dateB = new Date(b.data.data);
+            return dateB.getTime() - dateA.getTime();
+        });
 
         return (
             <section className="flex flex-col items-center p-4">
