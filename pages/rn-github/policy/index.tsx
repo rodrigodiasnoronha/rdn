@@ -1,7 +1,7 @@
 import { NextPage } from 'next'; // eslint-disable-line
 import React from 'react';
 import styled from 'styled-components';
-import { Footer, Head, Header } from '../../../components';
+import { Footer, Head, Header } from '@/components';
 
 const Container = styled.article`
     width: 100%;

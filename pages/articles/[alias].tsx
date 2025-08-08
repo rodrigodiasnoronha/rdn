@@ -3,10 +3,10 @@ import { ptBR } from 'date-fns/locale';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'; // eslint-disable-line
 import React from 'react';
 import styled from 'styled-components';
-import { Footer, Head, Header, PostContent } from '../../components';
-import { getAllArticles, getArticleByAlias } from '../../lib/articles';
-import markdownToHtml from '../../lib/markdown';
-import { Article } from '../../types'; // eslint-disable-line
+import { Footer, Head, Header, PostContent } from '@/components';
+import { getAllArticles, getArticleByAlias } from '@/lib/articles';
+import markdownToHtml from '@/lib/markdown';
+import { Article } from '@/types'; // eslint-disable-line
 
 const Container = styled.main`
     height: 100%;

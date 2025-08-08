@@ -2,10 +2,10 @@ import { GetStaticProps } from 'next'; // eslint-disable-line
 import { NextRouter, withRouter } from 'next/router';
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { Footer, Head, Header } from '../components';
-import RecentArticles from '../components/RecentArticles';
-import { formatArticles, getAllArticles } from '../lib/articles';
-import { Article as IArticle } from '../types'; // eslint-disable-line
+import { Footer, Head, Header } from '@/components';
+import RecentArticles from '@/components/RecentArticles';
+import { formatArticles, getAllArticles } from '@/lib/articles';
+import { Article as IArticle } from '@/types'; // eslint-disable-line
 
 const Container = styled.main`
     width: 100%;

@@ -1,6 +1,6 @@
 import React from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
-import HeadMetaTags from '../components/Head';
+import HeadMetaTags from '@/components/Head';
 import { ServerStyleSheet } from 'styled-components';
 
 class MyDocument extends Document {

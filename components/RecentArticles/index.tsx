@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Article as ArticleInterface } from '../../types';
-import Article from '../Article';
+import { Article as ArticleInterface } from '@/types';
+import Article from '@/components/Article';
 
 interface RecentArticlesProps {
     articleList: string;

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { Footer, Head, Header } from '../../components';
-import { getUserRepositories } from '../../services/githubApi';
-import colors from '../../types/colors';
+import { Footer, Head, Header } from '@/components';
+import { getUserRepositories } from '@/services/githubApi';
+import colors from '@/types/colors';
 
 const Container = styled.main`
     display: flex;

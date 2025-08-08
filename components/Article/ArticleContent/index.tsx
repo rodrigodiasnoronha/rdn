@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { FiTwitter, FiMail } from 'react-icons/fi';
-import { Article } from '../../../types';
+import { Article } from '@/types';
 import { Container } from './styles';
-import DisqusComments from '../../DisqusComments';
+import DisqusComments from '@/components/DisqusComments';
 import { format } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 import Prism from 'prismjs';

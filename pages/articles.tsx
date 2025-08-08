@@ -1,9 +1,9 @@
 import React from 'react';
 import { GetStaticProps, NextPage } from 'next'; // eslint-disable-line
-import { Article as IArticle } from '../types'; // eslint-disable-line
-import { Header, Article, Footer, Head } from '../components';
+import { Article as IArticle } from '@/types'; // eslint-disable-line
+import { Header, Article, Footer, Head } from '@/components';
 import styled from 'styled-components';
-import { formatArticles, getAllArticles } from '../lib/articles';
+import { formatArticles, getAllArticles } from '@/lib/articles';
 
 const Container = styled.article`
     width: 100%;

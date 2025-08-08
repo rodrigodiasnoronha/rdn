@@ -1,6 +1,6 @@
 import React from 'react';
 import { MdSentimentNeutral } from 'react-icons/md';
-import Button from '../Button';
+import Button from '@/components/Button';
 import styled from 'styled-components';
 
 interface Props {
