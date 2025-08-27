@@ -330,7 +330,7 @@ class Me extends Component {
                             <span className="react-native tech-effect">React Native</span>,
                             <span className="node tech-effect">Node</span> e{' '}
                             <span className="python tech-effect">Python</span>. Estudando, atualmente,
-                            desenvolvimento mobile com <span className="kotlin">Kotlin</span>.
+                            IA Generativa e soluções baseadas em IA com Python e JavaScript!
                         </p>
                     </div>
                 </section>
